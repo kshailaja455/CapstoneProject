@@ -407,13 +407,18 @@ export function classifyRelationship(left: EventFeature, right: EventFeature, fr
   // Production clusters can themselves contain mixed or drifted headlines.
   // A single member article pair must not promote their whole clusters unless
   // the persisted event labels corroborate the same identity or issue.
+  // Fallback: strong article-level evidence (high-signal entity OR ≥2 distinctive terms)
+  // is accepted as corroboration when the cluster label is a keyword-fragment summary
+  // rather than a full title (e.g. "Bihar / Nitish / Modi" for a multi-article cluster).
   const sharedLabelTerms = termsFor(left.label).filter((term) => termsFor(right.label).includes(term));
   const leftLabelEntities = extractTypedEntities(left.label);
   const rightLabelEntityKeys = new Set(extractTypedEntities(right.label).map((entity) => `${entity.type}:${entity.canonical}`));
   const sharedLabelEntities = leftLabelEntities.filter((entity) => rightLabelEntityKeys.has(`${entity.type}:${entity.canonical}`));
+  const articleLevelCorroboration = supportingEntities.some(highSignalEntity) || allDistinctiveTerms.length >= 2;
   const labelCorroboration = sharedLabelTerms.filter((term) => isDistinctiveTerm(term, frequency, eventCount)).length >= 2
     || (sharedLabelEntities.some((entity) => ["COMPANY", "PRODUCT_PROJECT", "EVENT_PROGRAM", "ORGANIZATION"].includes(entity.type)) && sharedLabelTerms.length >= 1)
-    || (sharedLabelEntities.filter((entity) => entity.type === "PERSON").length >= 2 && sharedLabelTerms.length >= 1);
+    || (sharedLabelEntities.filter((entity) => entity.type === "PERSON").length >= 2 && sharedLabelTerms.length >= 1)
+    || articleLevelCorroboration;
   if (!labelCorroboration) {
     return {
       type: "INSUFFICIENT_EVIDENCE", state: "INSUFFICIENT_EVIDENCE", supportingEntities, supportingTerms,
@@ -577,13 +582,23 @@ function canMerge(groups: number[][], leftIndex: number, rightIndex: number, rel
   const leftGroup = groups.find((group) => group.includes(leftIndex));
   const rightGroup = groups.find((group) => group.includes(rightIndex));
   if (!leftGroup || !rightGroup || leftGroup === rightGroup) return false;
-  for (const left of leftGroup) {
-    for (const right of rightGroup) {
-      const relation = relations.get(`${Math.min(left, right)}:${Math.max(left, right)}`);
-      if (!relation || !["SAME_EVENT", "CONTINUING_STORYLINE"].includes(relation.type) || relation.state !== "CANDIDATE") return false;
+  // Get the direct connecting relationship
+  const connectingRelation = relations.get(`${Math.min(leftIndex, rightIndex)}:${Math.max(leftIndex, rightIndex)}`);
+  if (!connectingRelation || !["SAME_EVENT", "CONTINUING_STORYLINE"].includes(connectingRelation.type) || connectingRelation.state !== "CANDIDATE") return false;
+  if (connectingRelation.type === "SAME_EVENT") {
+    // Complete-link: every node pair across the two groups must qualify
+    for (const left of leftGroup) {
+      for (const right of rightGroup) {
+        const relation = relations.get(`${Math.min(left, right)}:${Math.max(left, right)}`);
+        if (!relation || !["SAME_EVENT", "CONTINUING_STORYLINE"].includes(relation.type) || relation.state !== "CANDIDATE") return false;
+      }
     }
+    return true;
   }
-  return true;
+  // CONTINUING_STORYLINE: allow merging only when both groups are singletons
+  // (forming a new 2-node group). Bridging into an existing multi-node group via
+  // a single CONTINUING_STORYLINE edge would create spurious transitive connections.
+  return leftGroup.length === 1 && rightGroup.length === 1;
 }
 
 export function completeLinkGroups(

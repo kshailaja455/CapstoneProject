@@ -868,12 +868,13 @@ function NarrativeIntelligence() {
     try {
       const [statusRes, narrRes, relRes] = await Promise.all([
         api('/narratives/status').catch(() => null),
-        api('/narratives').catch(() => ({ data: [] })),
-        api('/narratives/relationships?limit=100').catch(() => ({ data: [] })),
+        api('/narratives').catch(() => []),
+        api('/narratives/relationships?limit=100').catch(() => []),
       ])
-      if (statusRes?.data) setStatusData(statusRes.data)
-      if (narrRes?.data) setNarratives(narrRes.data)
-      if (relRes?.data) setRelationships(relRes.data)
+      // api() already unwraps payload.data — use the result directly
+      if (statusRes) setStatusData(statusRes)
+      if (Array.isArray(narrRes)) setNarratives(narrRes)
+      if (Array.isArray(relRes)) setRelationships(relRes)
     } catch {}
     setLoading(false)
   }, [])
@@ -888,7 +889,8 @@ function NarrativeIntelligence() {
     setActiveTab('detail')
     try {
       const res = await api(`/narratives/${id}`)
-      if (res?.data) setNarrativeDetail(res.data)
+      // api() already unwraps payload.data — use the result directly
+      if (res) setNarrativeDetail(res)
     } catch {}
     setDetailLoading(false)
   }, [])
