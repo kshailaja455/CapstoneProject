@@ -583,6 +583,56 @@ h3 { color: var(--h3-color); font-size: 15px; font-weight: 650; }
 
 .live-time { color: var(--text-secondary); font-size: 12px; white-space: nowrap; }
 .live-category { color: var(--text-secondary); font-size: 12px; white-space: nowrap; }
+.live-country { color: var(--text-secondary); font-size: 12px; white-space: nowrap; }
+
+.search-input-sm {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--text-primary);
+  font-size: 12.5px;
+  padding: 6px 12px;
+  min-width: 200px;
+}
+.search-input-sm:focus { border-color: #1f7a5c; outline: none; }
+
+.cat-pill {
+  background: rgba(88,166,255,0.1);
+  color: #58a6ff;
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 650;
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+.country-pill {
+  background: rgba(139,148,158,0.1);
+  color: var(--text-secondary);
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+
+.pub-feed-list {
+  background: var(--bg-secondary);
+  border-radius: 7px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+.pub-feed-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+}
+.pub-feed-row .feed-name { font-weight: 650; color: var(--text-primary); }
+.pub-feed-row .feed-url { color: var(--text-muted); font-size: 11px; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pub-feed-row .feed-err { color: #f85149; font-size: 10.5px; }
 .live-cluster { max-width: 200px; min-width: 100px; font-size: 12px; overflow: hidden; }
 .live-cluster span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 

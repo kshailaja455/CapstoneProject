@@ -20,6 +20,14 @@ const ArticleSchema = new Schema(
       type: String,
       default: "General",
     },
+    sourceCategory: {
+      type: String,
+      default: "Media",
+    },
+    country: {
+      type: String,
+      default: "Global",
+    },
     language: {
       type: String,
       default: "en",

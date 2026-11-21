@@ -62,6 +62,8 @@ def get_active_publishers_and_feeds():
                         targets.append({
                             "publisherName": pub_name,
                             "publisherId": pub_id,
+                            "sourceCategory": pub.get("category", "Media"),
+                            "country": pub.get("country", "Global"),
                             "feedUrl": feed_item.get("url"),
                             "feedName": feed_item.get("name", "Main"),
                             "category": feed_item.get("category", "General"),
@@ -182,6 +184,8 @@ def fetch_articles():
                 "discoveredAt": now,
                 "source": source,
                 "publisherId": target.get("publisherId"),
+                "sourceCategory": target.get("sourceCategory", "Media"),
+                "country": target.get("country", "Global"),
                 "category": category,
                 "language": "en",
                 "processingStatus": "ingested",

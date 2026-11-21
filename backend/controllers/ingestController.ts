@@ -75,10 +75,16 @@ export async function getIngestSummary(_req: Request, res: Response) {
 
 export async function getLiveArticles(req: Request, res: Response) {
   try {
-    const limit = Math.min(150, Math.max(10, Number(req.query.limit) || 50));
-    const publisherFilter = req.query.publisher ? { source: req.query.publisher } : {};
+    const limit = Math.min(250, Math.max(10, Number(req.query.limit) || 100));
+    const filter: any = {};
+    if (req.query.publisher && req.query.publisher !== "all") {
+      filter.source = req.query.publisher;
+    }
+    if (req.query.sourceCategory && req.query.sourceCategory !== "all") {
+      filter.sourceCategory = req.query.sourceCategory;
+    }
 
-    const rawArticles = await Article.find({ ...publisherFilter })
+    const rawArticles = await Article.find(filter)
       .sort({ publishedAt: -1, discoveredAt: -1, createdAt: -1 })
       .limit(limit)
       .populate("clusterId", "label")
@@ -88,6 +94,8 @@ export async function getLiveArticles(req: Request, res: Response) {
       id: art._id.toString(),
       headline: art.title,
       publisher: art.source,
+      sourceCategory: art.sourceCategory || "Media",
+      country: art.country || "Global",
       publicationTimestamp: art.publishedAt || art.createdAt,
       discoveryTimestamp: art.discoveredAt || art.createdAt,
       ingestionTimestamp: art.fetchedAt || art.createdAt,

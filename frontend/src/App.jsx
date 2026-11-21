@@ -344,6 +344,8 @@ function LiveFeed() {
   const [articles, setArticles] = useState([])
   const [loading, setLoading] = useState(true)
   const [publisherFilter, setPublisherFilter] = useState('all')
+  const [sourceCategoryFilter, setSourceCategoryFilter] = useState('all')
+  const [searchFilter, setSearchFilter] = useState('')
   const [publishers, setPublishers] = useState([])
   const [liveCount, setLiveCount] = useState(0)
   const eventSourceRef = useRef(null)
@@ -351,10 +353,11 @@ function LiveFeed() {
   const fetchArticles = useCallback(async () => {
     try {
       const pub = publisherFilter !== 'all' ? `&publisher=${encodeURIComponent(publisherFilter)}` : ''
-      const data = await api(`/ingest/live?limit=100${pub}`)
+      const cat = sourceCategoryFilter !== 'all' ? `&sourceCategory=${encodeURIComponent(sourceCategoryFilter)}` : ''
+      const data = await api(`/ingest/live?limit=250${pub}${cat}`)
       setArticles(data)
     } catch {}
-  }, [publisherFilter])
+  }, [publisherFilter, sourceCategoryFilter])
 
   useEffect(() => {
     setLoading(true)
@@ -375,7 +378,7 @@ function LiveFeed() {
       try {
         const msg = JSON.parse(e.data)
         if (msg.type === 'article') {
-          setArticles((prev) => [msg.data, ...prev].slice(0, 100))
+          setArticles((prev) => [msg.data, ...prev].slice(0, 250))
           setLiveCount((c) => c + 1)
         }
       } catch {}
@@ -383,7 +386,26 @@ function LiveFeed() {
     return () => { es.close() }
   }, [])
 
-  const filtered = publisherFilter === 'all' ? articles : articles.filter((a) => a.publisher === publisherFilter)
+  const filtered = articles.filter((a) => {
+    if (publisherFilter !== 'all' && a.publisher !== publisherFilter) return false
+    if (sourceCategoryFilter !== 'all' && a.sourceCategory !== sourceCategoryFilter) return false
+    if (searchFilter.trim()) {
+      const q = searchFilter.toLowerCase()
+      const matchHeadline = (a.headline || '').toLowerCase().includes(q)
+      const matchPub = (a.publisher || '').toLowerCase().includes(q)
+      if (!matchHeadline && !matchPub) return false
+    }
+    return true
+  })
+
+  const sourceCategories = [
+    { id: 'all', label: 'All Sources' },
+    { id: 'Indian Media', label: 'Indian Media' },
+    { id: 'Indian Government', label: 'Indian Government' },
+    { id: 'Indian Regulators', label: 'Indian Regulators' },
+    { id: 'International Official Sources', label: 'International Official' },
+    { id: 'Existing International Media', label: 'Existing International Media' },
+  ]
 
   return (
     <div className="section-container">
@@ -391,16 +413,29 @@ function LiveFeed() {
         <div>
           <p className="eyebrow"><Wifi size={13} /> Live Ingestion Feed</p>
           <h2>Incoming Articles</h2>
-          <p className="section-desc">Real-time stream of articles fetched from all active RSS feeds, newest first.</p>
+          <p className="section-desc">Real-time stream of articles fetched across media, government, and regulatory networks.</p>
         </div>
         <div className="live-feed-actions">
           {liveCount > 0 && <span className="live-badge"><span className="live-dot" />{liveCount} new</span>}
+          <input
+            className="search-input-sm"
+            placeholder="Search headline or publisher..."
+            value={searchFilter}
+            onChange={(e) => setSearchFilter(e.target.value)}
+          />
+          <select
+            className="pub-select"
+            value={sourceCategoryFilter}
+            onChange={(e) => setSourceCategoryFilter(e.target.value)}
+          >
+            {sourceCategories.map((c) => <option key={c.id} value={c.id}>{c.label}</option>)}
+          </select>
           <select
             className="pub-select"
             value={publisherFilter}
             onChange={(e) => setPublisherFilter(e.target.value)}
           >
-            <option value="all">All publishers</option>
+            <option value="all">All publishers ({publishers.length})</option>
             {publishers.map((p) => <option key={p._id} value={p.name}>{p.name}</option>)}
           </select>
           <button className="icon-btn" onClick={fetchArticles} title="Refresh"><RefreshCcw size={16} /></button>
@@ -410,7 +445,7 @@ function LiveFeed() {
       {loading ? (
         <div className="live-loading"><div className="spinner" /><span>Loading live feed…</span></div>
       ) : !filtered.length ? (
-        <div className="empty-state"><Radio size={30} /><p>No articles yet. Trigger an ingestion to populate the feed.</p></div>
+        <div className="empty-state"><Radio size={30} /><p>No articles found matching the selected filters.</p></div>
       ) : (
         <div className="live-feed-table-wrap">
           <table className="live-feed-table">
@@ -418,9 +453,10 @@ function LiveFeed() {
               <tr>
                 <th>Headline</th>
                 <th>Publisher</th>
+                <th>Category</th>
+                <th>Country</th>
                 <th>Published</th>
                 <th>Ingested</th>
-                <th>Category</th>
                 <th>Lang</th>
                 <th>Status</th>
                 <th>Cluster</th>
@@ -435,9 +471,10 @@ function LiveFeed() {
                     {art.description && <span className="live-desc">{art.description.slice(0, 120)}…</span>}
                   </td>
                   <td><SourceChip source={art.publisher} /></td>
+                  <td className="live-category"><span className="cat-pill">{art.sourceCategory || 'Media'}</span></td>
+                  <td className="live-country">{art.country || 'Global'}</td>
                   <td className="live-time">{formatDate(art.publicationTimestamp)}</td>
                   <td className="live-time">{formatDate(art.ingestionTimestamp)}</td>
-                  <td className="live-category">{art.category || 'General'}</td>
                   <td><span className="lang-badge">{(art.language || 'en').toUpperCase()}</span></td>
                   <td><StatusBadge status={art.processingStatus || 'ingested'} /></td>
                   <td className="live-cluster">
@@ -640,11 +677,25 @@ function PublisherManagement() {
                 </div>
               </div>
               <div className="pub-stats">
-                <span><Newspaper size={12} /> {pub.articleCount || 0} articles</span>
-                <span><Zap size={12} /> {pub.feedCount || 0} feed{pub.feedCount !== 1 ? 's' : ''}</span>
+                <span className="cat-pill">{pub.category || 'Media'}</span>
+                <span className="country-pill">{pub.country || 'Global'}</span>
+                <span><Newspaper size={12} /> {pub.totalStoredCount || pub.articleCount || 0} articles</span>
+                <span><Zap size={12} /> {pub.feeds?.length || pub.feedCount || 0} feed{(pub.feeds?.length || pub.feedCount) !== 1 ? 's' : ''}</span>
                 <StatusBadge status={pub.health || 'healthy'} />
                 {pub.lastIngestionAt && <span className="muted">Last: {formatDate(pub.lastIngestionAt)}</span>}
               </div>
+              {pub.feeds?.length > 0 && (
+                <div className="pub-feed-list">
+                  {pub.feeds.map((f, fi) => (
+                    <div key={fi} className="pub-feed-row">
+                      <span className="feed-name">{f.name || 'Feed'}</span>
+                      <span className="feed-url" title={f.url}>{f.url}</span>
+                      <StatusBadge status={f.lastStatus || 'healthy'} />
+                      {f.lastError && <span className="feed-err" title={f.lastError}>⚠️ {f.lastError.slice(0, 45)}…</span>}
+                    </div>
+                  ))}
+                </div>
+              )}
               {pub.description && <p className="pub-desc">{pub.description}</p>}
             </div>
           ))}

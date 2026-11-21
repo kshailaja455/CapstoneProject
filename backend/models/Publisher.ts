@@ -39,6 +39,9 @@ const PublisherSchema = new Schema(
     homepageUrl: { type: String, default: "" },
     description: { type: String, default: "" },
     language: { type: String, default: "en" },
+    category: { type: String, default: "Media" },
+    country: { type: String, default: "Global" },
+    sourceType: { type: String, default: "Media" },
     enabled: { type: Boolean, default: true },
     health: {
       type: String,
