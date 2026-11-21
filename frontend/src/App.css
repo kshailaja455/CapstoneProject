@@ -1,4 +1,4 @@
-﻿/* ─── CSS Variables / Themes ───────────────────────────────────────────────── */
+/* ─── CSS Variables / Themes ───────────────────────────────────────────────── */
 :root[data-theme="dark"],
 .dark {
   --bg-primary: #0d1117;
@@ -428,6 +428,9 @@ h3 { color: var(--h3-color); font-size: 15px; font-weight: 650; }
 .badge-red { background: rgba(248,81,73,0.14); color: #f85149; }
 .badge-yellow { background: rgba(210,153,34,0.14); color: #d29922; }
 .badge-gray { background: rgba(139,148,158,0.12); color: #8b949e; }
+.badge-purple { background: rgba(139,92,246,0.14); color: #a78bfa; }
+.badge-orange { background: rgba(249,115,22,0.14); color: #fb923c; }
+.badge-teal { background: rgba(20,184,166,0.14); color: #2dd4bf; }
 
 .lang-badge {
   background: rgba(88,166,255,0.1);
@@ -798,6 +801,58 @@ h3 { color: var(--h3-color); font-size: 15px; font-weight: 650; }
 .history-table tr:hover td { background: var(--bg-card-hover); }
 
 /* ─── Narrative Intelligence ─────────────────────────────────────────────── */
+.narrative-run-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+}
+.narrative-run-bar span { display: flex; align-items: center; gap: 5px; }
+.narrative-run-bar strong { color: var(--text-primary); font-weight: 680; }
+
+.ni-live-strip {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.ni-live-strip > .eyebrow { margin-bottom: 10px; }
+.ni-live-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+.ni-live-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 7px;
+  padding: 8px 12px;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+.ni-live-title {
+  flex: 1;
+  font-size: 12.5px;
+  font-weight: 580;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+.ni-live-time { color: var(--text-muted); font-size: 11px; white-space: nowrap; flex-shrink: 0; }
+
 .narrative-filters {
   display: flex;
   align-items: center;
@@ -828,14 +883,23 @@ h3 { color: var(--h3-color); font-size: 15px; font-weight: 650; }
   transition: box-shadow 0.15s;
 }
 .narrative-card:hover { box-shadow: var(--shadow); }
+.narrative-card.mixed { border-left: 3px solid #58a6ff; }
+.narrative-card.bbc { border-left: 3px solid #ff6b6b; }
+.narrative-card.guardian { border-left: 3px solid #3fb950; }
+.narrative-card.npr { border-left: 3px solid #d29922; }
 
 .nc-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .nc-type { background: rgba(88,166,255,0.1); border-radius: 4px; color: #58a6ff; font-size: 10px; font-weight: 760; letter-spacing: 0.06em; padding: 2px 8px; text-transform: uppercase; }
-.nc-members { color: var(--text-muted); font-size: 11.5px; margin-left: auto; }
+.nc-type.cross { background: rgba(88,166,255,0.14); color: #58a6ff; }
+.nc-type.grouped { background: rgba(63,185,80,0.12); color: #3fb950; }
+.nc-type.single { background: rgba(139,148,158,0.12); color: var(--text-secondary); }
+.nc-members { color: var(--text-muted); font-size: 11.5px; margin-left: auto; display: flex; align-items: center; gap: 5px; }
 .nc-label { color: var(--text-primary); font-size: 14px; font-weight: 680; line-height: 1.35; }
 .nc-categories { display: flex; flex-wrap: wrap; gap: 5px; }
 .nc-cat { background: rgba(139,148,158,0.1); border-radius: 4px; color: var(--text-secondary); font-size: 10.5px; padding: 2px 8px; }
 .nc-summary { color: var(--text-secondary); font-size: 12.5px; line-height: 1.44; }
+.nc-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-top: 2px; }
+.nc-time { color: var(--text-muted); font-size: 11px; display: flex; align-items: center; gap: 4px; }
 
 /* ─── Dashboard (RSS, stat cards, controls, visual panel) ───────────────── */
 .dashboard-content {

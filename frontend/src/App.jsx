@@ -1,4 +1,4 @@
-﻿import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   Activity,
   AlertCircle,
@@ -129,7 +129,12 @@ function StatusBadge({ status }) {
   const map = {
     clustered: 'badge-green',
     ingested: 'badge-blue',
+    stored: 'badge-blue',
+    discovered: 'badge-gray',
     pending: 'badge-gray',
+    processing: 'badge-purple',
+    processed: 'badge-teal',
+    standalone: 'badge-orange',
     failed: 'badge-red',
     healthy: 'badge-green',
     degraded: 'badge-yellow',
@@ -137,7 +142,8 @@ function StatusBadge({ status }) {
     completed: 'badge-green',
     running: 'badge-blue',
   }
-  return <span className={`status-badge ${map[status] || 'badge-gray'}`}>{status}</span>
+  const label = status ? status.replace(/_/g, ' ') : 'unknown'
+  return <span className={`status-badge ${map[status] || 'badge-gray'}`}>{label}</span>
 }
 
 function mlConfidence(cluster) {
@@ -765,32 +771,61 @@ function IngestionMonitoring() {
 
 // ─── Narrative Intelligence ───────────────────────────────────────────────────
 function NarrativeIntelligence() {
-  const [narratives, setNarratives] = useState([])
+  const [clusters, setNarrativeClusters] = useState([])
+  const [liveArticles, setLiveArticles] = useState([])
   const [loading, setLoading] = useState(true)
   const [publisherFilter, setPublisherFilter] = useState('All')
   const [categoryFilter, setCategoryFilter] = useState('All')
   const [reviewFilter, setReviewFilter] = useState('All')
+  const [publishers, setPublishers] = useState([])
+  const [runInfo, setRunInfo] = useState(null)
 
-  useEffect(() => {
-    api('/narratives')
-      .then((d) => setNarratives(Array.isArray(d) ? d : (d?.narratives || [])))
-      .catch(() => {})
-      .finally(() => setLoading(false))
+  const load = useCallback(async () => {
+    try {
+      // Load clusters (the main narrative data)
+      const clusterData = await api('/clusters/playground?threshold=0.26')
+      const allClusters = clusterData?.clusters || []
+      setNarrativeClusters(allClusters)
+
+      // Collect run metadata from ingest summary
+      const summary = await api('/ingest/summary').catch(() => null)
+      if (summary) setRunInfo(summary)
+
+      // Load recent articles for the live feed strip
+      const arts = await api('/ingest/live?limit=20').catch(() => [])
+      setLiveArticles(Array.isArray(arts) ? arts : [])
+    } catch {}
+    setLoading(false)
   }, [])
 
-  const categories = useMemo(() => ['All', ...Array.from(new Set(narratives.flatMap((n) => n.categories || [])))], [narratives])
-  const reviewStates = ['All', 'NEEDS_REVIEW', 'APPROVED', 'REJECTED']
+  useEffect(() => {
+    load()
+    api('/publishers').then((d) => setPublishers(d || [])).catch(() => {})
+  }, [load])
 
-  const visible = narratives.filter((n) => {
-    if (reviewFilter !== 'All' && n.reviewState !== reviewFilter) return false
-    if (publisherFilter !== 'All' && !(n.publishers || []).includes(publisherFilter)) return false
-    if (categoryFilter !== 'All' && !(n.categories || []).includes(categoryFilter)) return false
+  // Derive unique categories from cluster topTerms
+  const categories = useMemo(() => {
+    const cats = new Set()
+    clusters.forEach((c) => (c.topTerms || []).forEach((t) => cats.add(t)))
+    return ['All', ...Array.from(cats).slice(0, 20)]
+  }, [clusters])
+
+  const pubNames = useMemo(() => ['All', ...publishers.map((p) => p.name)], [publishers])
+
+  const visible = clusters.filter((n) => {
+    if (publisherFilter !== 'All' && !n.sources.includes(publisherFilter)) return false
+    if (categoryFilter !== 'All' && !(n.topTerms || []).includes(categoryFilter)) return false
+    if (reviewFilter === 'GROUPED' && n.articleCount <= 1) return false
+    if (reviewFilter === 'CROSS_SOURCE' && n.sources.length <= 1) return false
+    if (reviewFilter === 'SINGLE' && n.articleCount !== 1) return false
     return true
   })
 
+  const reviewOptions = ['All', 'GROUPED', 'CROSS_SOURCE', 'SINGLE']
+
   if (loading) return (
     <div className="section-container">
-      <div className="live-loading"><div className="spinner" /><span>Loading narratives…</span></div>
+      <div className="live-loading"><div className="spinner" /><span>Loading narrative intelligence…</span></div>
     </div>
   )
 
@@ -800,51 +835,94 @@ function NarrativeIntelligence() {
         <div>
           <p className="eyebrow"><BrainCircuit size={13} /> Narrative Intelligence</p>
           <h2>Story Narratives</h2>
-          <p className="section-desc">AI-detected narrative clusters linking articles across publishers and time.</p>
+          <p className="section-desc">TF-IDF narrative clusters assembled from live RSS ingestion across all publishers.</p>
         </div>
+        <button className="icon-btn" onClick={load} title="Refresh"><RefreshCcw size={16} /></button>
       </div>
+
+      {/* Run metadata bar */}
+      {runInfo && (
+        <div className="narrative-run-bar">
+          {runInfo.lastSuccessfulCollectionAt && (
+            <span><Clock3 size={12} /> Latest run: <strong>{formatDate(runInfo.lastSuccessfulCollectionAt)}</strong></span>
+          )}
+          <span><Layers size={12} /> {clusters.length} topics</span>
+          <span><Newspaper size={12} /> {runInfo.totalStoredArticles || 0} articles</span>
+          <span><GitBranch size={12} /> {publishers.length} publishers</span>
+        </div>
+      )}
+
+      {/* Live feed strip — newest articles */}
+      {liveArticles.length > 0 && (
+        <div className="ni-live-strip">
+          <p className="eyebrow"><Wifi size={12} /> Live feed — newest articles</p>
+          <div className="ni-live-scroll">
+            {liveArticles.map((art) => (
+              <div key={art.id} className="ni-live-item">
+                <SourceChip source={art.publisher} />
+                <span className="ni-live-title">{art.headline}</span>
+                <span className="ni-live-time">{formatDate(art.publicationTimestamp)}</span>
+                <StatusBadge status={art.processingStatus || 'ingested'} />
+                <a href={art.sourceLink} target="_blank" rel="noreferrer" className="ext-link" title="Open article">
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Filter bar */}
       <div className="narrative-filters">
         <div className="nf-group">
-          <label>Review State</label>
+          <label>Story Type</label>
           <select value={reviewFilter} onChange={(e) => setReviewFilter(e.target.value)}>
-            {reviewStates.map((s) => <option key={s}>{s}</option>)}
+            {reviewOptions.map((s) => <option key={s}>{s}</option>)}
           </select>
         </div>
         <div className="nf-group">
           <label>Publisher</label>
           <select value={publisherFilter} onChange={(e) => setPublisherFilter(e.target.value)}>
-            <option>All</option>
+            {pubNames.map((p) => <option key={p}>{p}</option>)}
           </select>
         </div>
         <div className="nf-group">
-          <label>Category</label>
+          <label>Topic Term</label>
           <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
             {categories.map((c) => <option key={c}>{c}</option>)}
           </select>
         </div>
-        <span className="nf-count">{visible.length} narratives</span>
+        <span className="nf-count">{visible.length} of {clusters.length} narratives</span>
       </div>
 
       {!visible.length ? (
-        <div className="empty-state"><BrainCircuit size={30} /><p>No narratives match the current filters.</p></div>
+        <div className="empty-state"><BrainCircuit size={30} /><p>No narratives match the current filters. Try adjusting filters or trigger a data refresh.</p></div>
       ) : (
         <div className="narrative-grid">
-          {visible.map((n) => (
-            <div key={n._id || n.id} className="narrative-card">
-              <div className="nc-head">
-                <span className="nc-type">{n.type || 'CHILD'}</span>
-                <StatusBadge status={(n.reviewState || 'NEEDS_REVIEW').toLowerCase().replace('_', '-')} />
-                <span className="nc-members">{n.memberCount || 0} members</span>
+          {visible.map((n) => {
+            const isCross = n.sources.length > 1
+            const isGrouped = n.articleCount > 1
+            const badge = isCross ? 'CROSS-SOURCE' : isGrouped ? 'GROUPED' : 'SINGLE'
+            const badgeClass = isCross ? 'nc-type cross' : isGrouped ? 'nc-type grouped' : 'nc-type single'
+            return (
+              <div key={n.id} className={`narrative-card ${sourceClass(n.sources)}`}>
+                <div className="nc-head">
+                  <span className={badgeClass}>{badge}</span>
+                  <span className="nc-members">
+                    <Newspaper size={11} /> {n.articleCount} · <GitBranch size={11} /> {n.sources.length} src
+                  </span>
+                </div>
+                <h3 className="nc-label">{n.label}</h3>
+                <div className="nc-categories">
+                  {(n.topTerms || []).slice(0, 5).map((c) => <span key={c} className="nc-cat">{c}</span>)}
+                </div>
+                <div className="nc-footer">
+                  <SourceChips sources={n.sources} />
+                  <span className="nc-time"><Clock3 size={11} /> {formatDate(n.endTime)}</span>
+                </div>
               </div>
-              <h3 className="nc-label">{n.label || n.title || 'Unnamed Narrative'}</h3>
-              <div className="nc-categories">
-                {(n.categories || []).slice(0, 5).map((c) => <span key={c} className="nc-cat">{c}</span>)}
-              </div>
-              {n.summary && <p className="nc-summary">{n.summary.slice(0, 200)}…</p>}
-            </div>
-          ))}
+            )
+          })}
         </div>
       )}
     </div>
@@ -1076,6 +1154,21 @@ function Dashboard({ darkMode, onToggleDark, onRefresh, refreshing }) {
   useEffect(() => { loadSummary() }, [loadSummary])
   useEffect(() => { setPageNumber(1) }, [crossSourceOnly, dateMode, searchQuery, selectedSources, threshold, viewMode, visualMode])
   useEffect(() => { if (selectedId) loadCluster(selectedId) }, [loadCluster, selectedId])
+
+  // Auto-refresh cluster board when ingestion completes
+  useEffect(() => {
+    const es = new EventSource(`${API_BASE_URL}/ingest/live-stream`)
+    es.onmessage = (e) => {
+      try {
+        const msg = JSON.parse(e.data)
+        if (msg.type === 'ingest_completed') {
+          loadTimeline()
+          loadSummary()
+        }
+      } catch {}
+    }
+    return () => es.close()
+  }, [loadTimeline, loadSummary])
 
   const stats = useMemo(() => {
     const grouped = clusters.filter((c) => c.articleCount > 1)

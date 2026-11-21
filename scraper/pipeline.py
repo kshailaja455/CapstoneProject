@@ -99,8 +99,13 @@ def rebuild_clusters():
         return 0
 
     generated_clusters = cluster_articles(recent_articles)
+    # Only reset status for articles being re-clustered (not all articles)
+    recent_ids = [a["_id"] for a in recent_articles]
     clusters.delete_many({})
-    articles.update_many({}, {"$set": {"clusterId": None, "processingStatus": "ingested"}})
+    articles.update_many(
+        {"_id": {"$in": recent_ids}},
+        {"$set": {"clusterId": None, "processingStatus": "processing"}},
+    )
     created = 0
 
     for generated in generated_clusters:
