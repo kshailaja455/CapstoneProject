@@ -27,12 +27,26 @@ async function eventFilter(req: Request) {
 
 export async function getNarrativeStatus(_req: Request, res: Response) {
   try {
-    const [latestRun, narrativeCount, relationshipCount] = await Promise.all([
+    const [latestRun, narrativeCount, relationshipCount, eventCount, needsReviewCount, activeNarrativeCount] = await Promise.all([
       NarrativeRun.findOne().sort({ startedAt: -1 }).lean(),
       Narrative.countDocuments({ status: { $in: ["CANDIDATE", "ACTIVE"] } }),
       NarrativeRelationship.countDocuments(),
+      NarrativeEvent.countDocuments({ status: "ACTIVE" }),
+      NarrativeRelationship.countDocuments({ reviewStatus: "NEEDS_REVIEW" }),
+      Narrative.countDocuments({ status: "ACTIVE" }),
     ]);
-    return res.json({ success: true, data: { ...narrativeConfig(), latestRun, narrativeCount, relationshipCount } });
+    return res.json({
+      success: true,
+      data: {
+        ...narrativeConfig(),
+        latestRun,
+        narrativeCount,
+        activeNarrativeCount,
+        relationshipCount,
+        eventCount,
+        needsReviewCount,
+      },
+    });
   } catch (error) {
     return serverError(res, error);
   }

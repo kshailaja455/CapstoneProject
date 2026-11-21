@@ -5,6 +5,7 @@ import type { Response } from "express";
 
 import Cluster from "../models/Cluster";
 import IngestJob from "../models/IngestJob";
+import { runNarrativeAnalysis } from "./narrativeService";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -124,6 +125,11 @@ export async function triggerIngest(triggeredBy: "manual" | "scheduled" | "websu
         insertedCount: latest?.insertedCount || 0,
         duplicateCount: latest?.duplicateCount || 0,
         finishedAt: new Date(),
+      });
+
+      // Post-ingest Narrative Intelligence reconciliation (non-blocking)
+      runNarrativeAnalysis("post-ingest").catch((err) => {
+        console.warn("Post-ingest narrative analysis notice:", err?.message || err);
       });
       return;
     }

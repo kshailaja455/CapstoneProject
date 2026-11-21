@@ -852,57 +852,89 @@ function IngestionMonitoring() {
 
 // ─── Narrative Intelligence ───────────────────────────────────────────────────
 function NarrativeIntelligence() {
-  const [clusters, setNarrativeClusters] = useState([])
-  const [liveArticles, setLiveArticles] = useState([])
+  const [activeTab, setActiveTab] = useState('overview') // 'overview' | 'relationships' | 'detail'
+  const [narratives, setNarratives] = useState([])
+  const [statusData, setStatusData] = useState(null)
+  const [relationships, setRelationships] = useState([])
+  const [selectedNarrativeId, setSelectedNarrativeId] = useState(null)
+  const [narrativeDetail, setNarrativeDetail] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [publisherFilter, setPublisherFilter] = useState('All')
-  const [categoryFilter, setCategoryFilter] = useState('All')
-  const [reviewFilter, setReviewFilter] = useState('All')
-  const [publishers, setPublishers] = useState([])
-  const [runInfo, setRunInfo] = useState(null)
+  const [analyzing, setAnalyzing] = useState(false)
+  const [detailLoading, setDetailLoading] = useState(false)
+  const [relFilter, setRelFilter] = useState('ALL')
+  const [searchFilter, setSearchFilter] = useState('')
 
-  const load = useCallback(async () => {
+  const loadData = useCallback(async () => {
     try {
-      // Load clusters (the main narrative data)
-      const clusterData = await api('/clusters/playground?threshold=0.26')
-      const allClusters = clusterData?.clusters || []
-      setNarrativeClusters(allClusters)
-
-      // Collect run metadata from ingest summary
-      const summary = await api('/ingest/summary').catch(() => null)
-      if (summary) setRunInfo(summary)
-
-      // Load recent articles for the live feed strip
-      const arts = await api('/ingest/live?limit=20').catch(() => [])
-      setLiveArticles(Array.isArray(arts) ? arts : [])
+      const [statusRes, narrRes, relRes] = await Promise.all([
+        api('/narratives/status').catch(() => null),
+        api('/narratives').catch(() => ({ data: [] })),
+        api('/narratives/relationships?limit=100').catch(() => ({ data: [] })),
+      ])
+      if (statusRes?.data) setStatusData(statusRes.data)
+      if (narrRes?.data) setNarratives(narrRes.data)
+      if (relRes?.data) setRelationships(relRes.data)
     } catch {}
     setLoading(false)
   }, [])
 
   useEffect(() => {
-    load()
-    api('/publishers').then((d) => setPublishers(d || [])).catch(() => {})
-  }, [load])
+    loadData()
+  }, [loadData])
 
-  // Derive unique categories from cluster topTerms
-  const categories = useMemo(() => {
-    const cats = new Set()
-    clusters.forEach((c) => (c.topTerms || []).forEach((t) => cats.add(t)))
-    return ['All', ...Array.from(cats).slice(0, 20)]
-  }, [clusters])
+  const openNarrative = useCallback(async (id) => {
+    setSelectedNarrativeId(id)
+    setDetailLoading(true)
+    setActiveTab('detail')
+    try {
+      const res = await api(`/narratives/${id}`)
+      if (res?.data) setNarrativeDetail(res.data)
+    } catch {}
+    setDetailLoading(false)
+  }, [])
 
-  const pubNames = useMemo(() => ['All', ...publishers.map((p) => p.name)], [publishers])
+  async function triggerAnalysis() {
+    setAnalyzing(true)
+    try {
+      await api('/narratives/analyze', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ trigger: 'manual' }) })
+      await loadData()
+    } catch {}
+    setAnalyzing(false)
+  }
 
-  const visible = clusters.filter((n) => {
-    if (publisherFilter !== 'All' && !n.sources.includes(publisherFilter)) return false
-    if (categoryFilter !== 'All' && !(n.topTerms || []).includes(categoryFilter)) return false
-    if (reviewFilter === 'GROUPED' && n.articleCount <= 1) return false
-    if (reviewFilter === 'CROSS_SOURCE' && n.sources.length <= 1) return false
-    if (reviewFilter === 'SINGLE' && n.articleCount !== 1) return false
-    return true
+  async function handleReview(relationshipKey, reviewStatus) {
+    try {
+      await api(`/narratives/relationships/${relationshipKey}/review`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ reviewStatus, note: `User manual review: ${reviewStatus}` }),
+      })
+      // Update local state
+      setRelationships((prev) =>
+        prev.map((r) => (r.relationshipKey === relationshipKey ? { ...r, reviewStatus } : r))
+      )
+    } catch {}
+  }
+
+  const filteredNarratives = narratives.filter((n) => {
+    if (!searchFilter.trim()) return true
+    const q = searchFilter.toLowerCase()
+    return (
+      (n.title || '').toLowerCase().includes(q) ||
+      (n.summary || '').toLowerCase().includes(q) ||
+      (n.entityKeys || []).some((e) => e.toLowerCase().includes(q))
+    )
   })
 
-  const reviewOptions = ['All', 'GROUPED', 'CROSS_SOURCE', 'SINGLE']
+  const filteredRelationships = relationships.filter((r) => {
+    if (relFilter === 'ALL') return true
+    if (relFilter === 'NEEDS_REVIEW') return r.reviewStatus === 'NEEDS_REVIEW' || r.reviewStatus === 'PENDING'
+    if (relFilter === 'CONFIRMED') return r.reviewStatus === 'CONFIRMED'
+    if (relFilter === 'SAME_EVENT') return r.classification === 'SAME_EVENT'
+    if (relFilter === 'CONTINUING_STORYLINE') return r.classification === 'CONTINUING_STORYLINE'
+    if (relFilter === 'BROADER_CONTEXT') return r.classification === 'BROADER_CONTEXT_ONLY'
+    return true
+  })
 
   if (loading) return (
     <div className="section-container">
@@ -915,96 +947,238 @@ function NarrativeIntelligence() {
       <div className="section-header">
         <div>
           <p className="eyebrow"><BrainCircuit size={13} /> Narrative Intelligence</p>
-          <h2>Story Narratives</h2>
-          <p className="section-desc">TF-IDF narrative clusters assembled from live RSS ingestion across all publishers.</p>
+          <h2>Storyline & Developing Events</h2>
+          <p className="section-desc">Identifies how separate event clusters develop over time, connecting related reporting with verifiable evidence.</p>
         </div>
-        <button className="icon-btn" onClick={load} title="Refresh"><RefreshCcw size={16} /></button>
+        <button className="primary-btn" onClick={triggerAnalysis} disabled={analyzing}>
+          <RefreshCcw size={16} className={analyzing ? 'spin' : ''} /> {analyzing ? 'Analyzing…' : 'Run Narrative Analysis'}
+        </button>
       </div>
 
-      {/* Run metadata bar */}
-      {runInfo && (
-        <div className="narrative-run-bar">
-          {runInfo.lastSuccessfulCollectionAt && (
-            <span><Clock3 size={12} /> Latest run: <strong>{formatDate(runInfo.lastSuccessfulCollectionAt)}</strong></span>
+      {/* Tabs */}
+      <div className="narrative-tabs">
+        <button
+          className={`narrative-tab-btn ${activeTab === 'overview' ? 'active' : ''}`}
+          onClick={() => setActiveTab('overview')}
+        >
+          <Layers size={15} /> Narratives ({narratives.length})
+        </button>
+        <button
+          className={`narrative-tab-btn ${activeTab === 'relationships' ? 'active' : ''}`}
+          onClick={() => setActiveTab('relationships')}
+        >
+          <GitBranch size={15} /> Event Relationships ({relationships.length})
+          {statusData?.needsReviewCount > 0 && (
+            <span className="narrative-badge-count">{statusData.needsReviewCount} review</span>
           )}
-          <span><Layers size={12} /> {clusters.length} topics</span>
-          <span><Newspaper size={12} /> {runInfo.totalStoredArticles || 0} articles</span>
-          <span><GitBranch size={12} /> {publishers.length} publishers</span>
-        </div>
-      )}
-
-      {/* Live feed strip — newest articles */}
-      {liveArticles.length > 0 && (
-        <div className="ni-live-strip">
-          <p className="eyebrow"><Wifi size={12} /> Live feed — newest articles</p>
-          <div className="ni-live-scroll">
-            {liveArticles.map((art) => (
-              <div key={art.id} className="ni-live-item">
-                <SourceChip source={art.publisher} />
-                <span className="ni-live-title">{art.headline}</span>
-                <span className="ni-live-time">{formatDate(art.publicationTimestamp)}</span>
-                <StatusBadge status={art.processingStatus || 'ingested'} />
-                <a href={art.sourceLink} target="_blank" rel="noreferrer" className="ext-link" title="Open article">
-                  <ExternalLink size={12} />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Filter bar */}
-      <div className="narrative-filters">
-        <div className="nf-group">
-          <label>Story Type</label>
-          <select value={reviewFilter} onChange={(e) => setReviewFilter(e.target.value)}>
-            {reviewOptions.map((s) => <option key={s}>{s}</option>)}
-          </select>
-        </div>
-        <div className="nf-group">
-          <label>Publisher</label>
-          <select value={publisherFilter} onChange={(e) => setPublisherFilter(e.target.value)}>
-            {pubNames.map((p) => <option key={p}>{p}</option>)}
-          </select>
-        </div>
-        <div className="nf-group">
-          <label>Topic Term</label>
-          <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
-            {categories.map((c) => <option key={c}>{c}</option>)}
-          </select>
-        </div>
-        <span className="nf-count">{visible.length} of {clusters.length} narratives</span>
+        </button>
+        {selectedNarrativeId && (
+          <button
+            className={`narrative-tab-btn ${activeTab === 'detail' ? 'active' : ''}`}
+            onClick={() => setActiveTab('detail')}
+          >
+            <Radio size={15} /> Storyline Detail
+          </button>
+        )}
       </div>
 
-      {!visible.length ? (
-        <div className="empty-state"><BrainCircuit size={30} /><p>No narratives match the current filters. Try adjusting filters or trigger a data refresh.</p></div>
-      ) : (
-        <div className="narrative-grid">
-          {visible.map((n) => {
-            const isCross = n.sources.length > 1
-            const isGrouped = n.articleCount > 1
-            const badge = isCross ? 'CROSS-SOURCE' : isGrouped ? 'GROUPED' : 'SINGLE'
-            const badgeClass = isCross ? 'nc-type cross' : isGrouped ? 'nc-type grouped' : 'nc-type single'
-            return (
-              <div key={n.id} className={`narrative-card ${sourceClass(n.sources)}`}>
-                <div className="nc-head">
-                  <span className={badgeClass}>{badge}</span>
-                  <span className="nc-members">
-                    <Newspaper size={11} /> {n.articleCount} · <GitBranch size={11} /> {n.sources.length} src
-                  </span>
-                </div>
-                <h3 className="nc-label">{n.label}</h3>
-                <div className="nc-categories">
-                  {(n.topTerms || []).slice(0, 5).map((c) => <span key={c} className="nc-cat">{c}</span>)}
-                </div>
-                <div className="nc-footer">
-                  <SourceChips sources={n.sources} />
-                  <span className="nc-time"><Clock3 size={11} /> {formatDate(n.endTime)}</span>
-                </div>
-              </div>
-            )
-          })}
+      {/* Status bar */}
+      {statusData && (
+        <div className="narrative-run-bar">
+          <span><Layers size={12} /> <strong>{statusData.narrativeCount || narratives.length}</strong> active storylines</span>
+          <span><CalendarDays size={12} /> <strong>{statusData.eventCount || 0}</strong> events tracked</span>
+          <span><GitBranch size={12} /> <strong>{statusData.relationshipCount || relationships.length}</strong> event relationships</span>
+          {statusData.latestRun?.finishedAt && (
+            <span><Clock3 size={12} /> Latest engine run: <strong>{formatDate(statusData.latestRun.finishedAt)}</strong></span>
+          )}
+          <span><Activity size={12} /> Rule version: <strong>{statusData.algorithmVersion}</strong></span>
         </div>
+      )}
+
+      {/* TAB 1: OVERVIEW / NARRATIVES LIST */}
+      {activeTab === 'overview' && (
+        <>
+          <div className="narrative-filters">
+            <div className="nf-group">
+              <label>Search Storylines</label>
+              <input
+                className="search-input-sm"
+                placeholder="Search topic or entity..."
+                value={searchFilter}
+                onChange={(e) => setSearchFilter(e.target.value)}
+              />
+            </div>
+            <span className="nf-count">{filteredNarratives.length} storylines displayed</span>
+          </div>
+
+          {!filteredNarratives.length ? (
+            <div className="empty-state">
+              <BrainCircuit size={32} />
+              <p>No active storylines match the search criteria. Click "Run Narrative Analysis" to process current event clusters.</p>
+            </div>
+          ) : (
+            <div className="narrative-grid">
+              {filteredNarratives.map((n) => (
+                <div
+                  key={n.narrativeKey || n._id}
+                  className={`narrative-card ${sourceClass(n.sources || [])}`}
+                  onClick={() => openNarrative(n.narrativeKey)}
+                >
+                  <div className="nc-head">
+                    <span className="nc-type cross">{n.level || 'STORYLINE'}</span>
+                    <span className="nc-members">
+                      <Newspaper size={11} /> {n.eventKeys?.length || 0} events · <GitBranch size={11} /> {(n.sources || []).length} src
+                    </span>
+                  </div>
+                  <h3 className="nc-label">{n.title}</h3>
+                  <p className="nc-summary">{n.summary}</p>
+                  {n.entityKeys?.length > 0 && (
+                    <div className="nc-categories">
+                      {n.entityKeys.slice(0, 4).map((e) => (
+                        <span key={e} className="nc-cat">{e.replace(/^[A-Z_]+:/, '')}</span>
+                      ))}
+                    </div>
+                  )}
+                  <div className="nc-footer">
+                    <SourceChips sources={n.sources || []} />
+                    <span className="nc-time"><Clock3 size={11} /> {formatDate(n.lastCoveredAt || n.updatedAt)}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      )}
+
+      {/* TAB 2: RELATIONSHIPS & REVIEW QUEUE */}
+      {activeTab === 'relationships' && (
+        <>
+          <div className="narrative-filters">
+            <div className="nf-group">
+              <label>Filter Relationships</label>
+              <select value={relFilter} onChange={(e) => setRelFilter(e.target.value)}>
+                <option value="ALL">All Relationships</option>
+                <option value="NEEDS_REVIEW">Needs Review / Pending</option>
+                <option value="CONFIRMED">Confirmed</option>
+                <option value="SAME_EVENT">Same Event</option>
+                <option value="CONTINUING_STORYLINE">Continuing Storyline</option>
+                <option value="BROADER_CONTEXT">Broader Context Only</option>
+              </select>
+            </div>
+            <span className="nf-count">{filteredRelationships.length} relationships</span>
+          </div>
+
+          {!filteredRelationships.length ? (
+            <div className="empty-state">
+              <GitBranch size={32} />
+              <p>No relationships found for the selected filter.</p>
+            </div>
+          ) : (
+            <div className="relationships-list">
+              {filteredRelationships.slice(0, 60).map((rel) => (
+                <div key={rel.relationshipKey || rel._id} className="rel-card">
+                  <div className="rel-head">
+                    <span className={`rel-badge ${rel.classification}`}>{rel.classification.replace(/_/g, ' ')}</span>
+                    <span className="nc-members">Review Status: <strong>{rel.reviewStatus || 'PENDING'}</strong></span>
+                  </div>
+                  <div className="rel-events-grid">
+                    <div className="rel-event-box">
+                      <strong>{rel.leftEvent?.label || rel.evidence?.leftEventLabel || rel.leftEventKey}</strong>
+                      <span>{rel.leftEvent?.sources?.join(', ') || 'Source'} · {rel.leftEvent?.publishedAtMin ? formatDate(rel.leftEvent.publishedAtMin) : ''}</span>
+                    </div>
+                    <ArrowLeft size={16} style={{ transform: 'rotate(180deg)', color: '#58a6ff' }} />
+                    <div className="rel-event-box">
+                      <strong>{rel.rightEvent?.label || rel.evidence?.rightEventLabel || rel.rightEventKey}</strong>
+                      <span>{rel.rightEvent?.sources?.join(', ') || 'Source'} · {rel.rightEvent?.publishedAtMin ? formatDate(rel.rightEvent.publishedAtMin) : ''}</span>
+                    </div>
+                  </div>
+                  {rel.explanation && (
+                    <div className="rel-explanation">
+                      <strong>Evidence & Reasoning:</strong> {rel.explanation}
+                    </div>
+                  )}
+                  <div className="rel-actions">
+                    <button
+                      className="rel-btn approve"
+                      onClick={() => handleReview(rel.relationshipKey, 'CONFIRMED')}
+                    >
+                      Approve Relationship
+                    </button>
+                    <button
+                      className="rel-btn reject"
+                      onClick={() => handleReview(rel.relationshipKey, 'REJECTED')}
+                    >
+                      Reject Relationship
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      )}
+
+      {/* TAB 3: STORYLINE DETAIL VIEW */}
+      {activeTab === 'detail' && (
+        <>
+          {detailLoading ? (
+            <div className="live-loading"><div className="spinner" /><span>Loading storyline details…</span></div>
+          ) : !narrativeDetail ? (
+            <div className="empty-state"><AlertCircle size={32} /><p>Storyline details not found.</p></div>
+          ) : (
+            <div className="narrative-timeline-section">
+              <div className="narrative-detail-header">
+                <div className="nd-top">
+                  <span className="nc-type cross">{narrativeDetail.level} STORYLINE</span>
+                  <button className="icon-btn" onClick={() => setActiveTab('overview')}><ArrowLeft size={15} /> Back</button>
+                </div>
+                <h2 className="nd-title">{narrativeDetail.title}</h2>
+                <p className="nd-summary">{narrativeDetail.summary}</p>
+                <div className="nd-stats-row">
+                  <span><strong>{narrativeDetail.events?.length || 0}</strong> events</span>
+                  <span><strong>{(narrativeDetail.sources || []).length}</strong> publishers</span>
+                  <span>First reported: <strong>{formatDate(narrativeDetail.firstSeenAt)}</strong></span>
+                  <span>Latest update: <strong>{formatDate(narrativeDetail.lastCoveredAt || narrativeDetail.lastSeenAt)}</strong></span>
+                </div>
+                {narrativeDetail.entityKeys?.length > 0 && (
+                  <div className="nd-entities-row">
+                    <span>Key Entities:</span>
+                    {narrativeDetail.entityKeys.map((e) => (
+                      <span key={e} className="nd-entity-pill">{e.replace(/^[A-Z_]+:/, '')}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Chronological Event Timeline */}
+              <h3 className="subsection-title">Chronological Event Developments</h3>
+              <div className="relationships-list">
+                {(narrativeDetail.events || []).map((ev, idx) => (
+                  <div key={ev.eventKey || ev._id} className="nd-event-card">
+                    <div className="nd-event-header">
+                      <span className="eyebrow">Development #{idx + 1}</span>
+                      <span className="live-time">{formatDate(ev.publishedAtMin || ev.firstSeenAt)}</span>
+                    </div>
+                    <h4 className="nd-event-title">{ev.label}</h4>
+                    <div className="nd-articles-list">
+                      {(ev.articles || []).map((art) => (
+                        <div key={art.id || art.url} className="nd-article-row">
+                          <div>
+                            <SourceChip source={art.source} />
+                            <strong style={{ marginLeft: 8, fontSize: 13 }}>{art.title}</strong>
+                          </div>
+                          <a href={art.url} target="_blank" rel="noreferrer" className="ext-link">
+                            Read original <ExternalLink size={12} />
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </>
       )}
     </div>
   )
