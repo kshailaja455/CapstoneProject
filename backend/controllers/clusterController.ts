@@ -26,6 +26,7 @@ function articleSourceFilter(req: Request) {
     return {};
   }
 
+
   return { source: clusterFilter.sources };
 }
 
@@ -62,6 +63,35 @@ export async function getClusters(req: Request, res: Response) {
     return res.json({
       success: true,
       data: clusters.map(toClusterSummary),
+    });
+  } catch (error) {
+    return serverError(res, error);
+  }
+}
+
+export async function getArticles(req: Request, res: Response) {
+  try {
+    const filter = articleSourceFilter(req);
+    const limit = Math.min(200, Math.max(1, Number(req.query.limit) || 150));
+    const articles = await Article.find(filter)
+      .sort({ publishedAt: -1, fetchedAt: -1 })
+      .limit(limit)
+      .select("title source url summary body publishedAt fetchedAt clusterId")
+      .lean();
+
+    return res.json({
+      success: true,
+      data: articles.map((a: any) => ({
+        id: a._id.toString(),
+        title: a.title,
+        source: a.source,
+        url: a.url,
+        summary: a.summary || "",
+        body: a.body || "",
+        publishedAt: a.publishedAt,
+        fetchedAt: a.fetchedAt,
+        clusterId: a.clusterId ? a.clusterId.toString() : null,
+      })),
     });
   } catch (error) {
     return serverError(res, error);

@@ -1,0 +1,895 @@
+{
+  "capturedAt": "2026-11-20T08:22:42.9173028Z",
+  "source": "Live local MongoDB shadow analysis",
+  "algorithmVersion": "rules-en-v1.1.0",
+  "run": {
+    "_id": "6b00034f9054ffd1c6b5e2c2",
+    "runId": "d20d780e-c8c3-427e-9b6a-d14560634de0",
+    "trigger": "manual",
+    "status": "completed",
+    "shadowMode": true,
+    "startedAt": "2026-11-20T08:22:39.246Z",
+    "finishedAt": "2026-11-20T08:22:42.015Z",
+    "durationMs": 2769,
+    "articleCount": 125,
+    "eventClusterCount": 109,
+    "candidatePairCount": 137,
+    "relationshipCount": 137,
+    "childNarrativeCount": 2,
+    "parentNarrativeCount": 0,
+    "createdNarrativeCount": 0,
+    "error": null,
+    "errorStack": null,
+    "algorithmVersion": "rules-en-v1.1.0",
+    "createdAt": "2026-11-20T08:22:39.249Z",
+    "updatedAt": "2026-11-20T08:22:42.015Z",
+    "__v": 0
+  },
+  "independentLabels": "UNREVIEWED",
+  "accuracyMetrics": null,
+  "relationshipClassCounts": [
+    {
+      "classification": "BROADER_CONTEXT_ONLY",
+      "state": "CANDIDATE",
+      "count": 5
+    },
+    {
+      "classification": "CONTINUING_STORYLINE",
+      "state": "CANDIDATE",
+      "count": 1
+    },
+    {
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "state": "INSUFFICIENT_EVIDENCE",
+      "count": 130
+    },
+    {
+      "classification": "SAME_EVENT",
+      "state": "CANDIDATE",
+      "count": 1
+    }
+  ],
+  "narratives": [
+    {
+      "narrativeKey": "narrative-e6f37041dface815a228838b",
+      "title": "New York / San Francisco / Anthropic — candidate storyline",
+      "level": "CHILD",
+      "status": "CANDIDATE",
+      "reviewStatus": "NEEDS_REVIEW",
+      "eventLabels": [
+        "Anthropic / Company / Shares",
+        "Protesters rally against Anthropic in New York and San Francisco after $2tn stock market debut"
+      ],
+      "relationships": [
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": "Protesters rally against Anthropic in New York and San Francisco after $2tn stock market debut",
+          "rightEvent": null,
+          "supportingEntities": [
+            {
+              "canonical": "Anthropic",
+              "type": "COMPANY",
+              "matchedText": "Anthropic"
+            }
+          ],
+          "supportingTerms": [
+            "anthropic"
+          ],
+          "explanation": "This event cluster contains a compound headline. The prototype retains its article facets for inspection but abstains from grouping the entire saved event until the source event is unambiguous.",
+          "evidence": {
+            "facetsCompared": 2,
+            "mixedHeadline": true
+          }
+        },
+        {
+          "classification": "CONTINUING_STORYLINE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": "Anthropic / Company / Shares",
+          "rightEvent": "Protesters rally against Anthropic in New York and San Francisco after $2tn stock market debut",
+          "supportingEntities": [
+            {
+              "canonical": "Anthropic",
+              "type": "COMPANY",
+              "matchedText": "Anthropic"
+            }
+          ],
+          "supportingTerms": [
+            "debut",
+            "anthropic"
+          ],
+          "explanation": "Distinctive terms and specific entity/context evidence support a continuing development; neither shared names nor timing alone was sufficient.",
+          "evidence": {
+            "facetsCompared": 3,
+            "selectedFacets": [
+              "Anthropic becomes one of world's most valuable public companies in stock market debut",
+              "Protesters rally against Anthropic in New York and San Francisco after $2tn stock market debut"
+            ],
+            "continuityMarker": true,
+            "missingBodies": false,
+            "bodyContextTerms": [
+              "amodei",
+              "among",
+              "artificial",
+              "become",
+              "building",
+              "claude",
+              "concerns",
+              "corporations",
+              "dario",
+              "exchange",
+              "going",
+              "history"
+            ],
+            "publisherCoverage": {
+              "left": [
+                "BBC",
+                "NPR"
+              ],
+              "right": [
+                "Guardian"
+              ],
+              "shared": [],
+              "crossPublisher": true
+            }
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": "Anthropic / Company / Shares",
+          "rightEvent": null,
+          "supportingEntities": [
+            {
+              "canonical": "Anthropic",
+              "type": "COMPANY",
+              "matchedText": "Anthropic"
+            }
+          ],
+          "supportingTerms": [
+            "anthropic"
+          ],
+          "explanation": "This event cluster contains a compound headline. The prototype retains its article facets for inspection but abstains from grouping the entire saved event until the source event is unambiguous.",
+          "evidence": {
+            "facetsCompared": 6,
+            "mixedHeadline": true
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": "Anthropic / Company / Shares",
+          "rightEvent": null,
+          "supportingEntities": [],
+          "supportingTerms": [
+            "becomes"
+          ],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 3,
+            "leftEventLabel": "Anthropic / Company / Shares",
+            "rightEventLabel": "UK joins in GTA 6 frenzy as game becomes available worldwide",
+            "sharedLabelTerms": [],
+            "sharedLabelEntities": []
+          }
+        }
+      ]
+    },
+    {
+      "narrativeKey": "narrative-6202a218b5a5129c761d0fe7",
+      "title": "China / APEC / Donald Trump — candidate storyline",
+      "level": "CHILD",
+      "status": "CANDIDATE",
+      "reviewStatus": "NEEDS_REVIEW",
+      "eventLabels": [
+        "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+        "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China"
+      ],
+      "relationships": [
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+          "supportingEntities": [],
+          "supportingTerms": [
+            "claims"
+          ],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 1,
+            "leftEventLabel": "Discrimination claims by McDonald's workers can go ahead, court says",
+            "rightEventLabel": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+            "sharedLabelTerms": [
+              "claims"
+            ],
+            "sharedLabelEntities": []
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+          "rightEvent": null,
+          "supportingEntities": [],
+          "supportingTerms": [
+            "accused"
+          ],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 1,
+            "leftEventLabel": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+            "rightEventLabel": "European Commission accused of sugarcoating figures to release funds to Egypt",
+            "sharedLabelTerms": [
+              "accused"
+            ],
+            "sharedLabelEntities": []
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+          "supportingEntities": [],
+          "supportingTerms": [
+            "summit"
+          ],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 3,
+            "leftEventLabel": "Eu Uk / Deal / Food",
+            "rightEventLabel": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+            "sharedLabelTerms": [],
+            "sharedLabelEntities": []
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+          "supportingEntities": [],
+          "supportingTerms": [
+            "summit"
+          ],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 3,
+            "leftEventLabel": "Eu Uk / Deal / Food",
+            "rightEventLabel": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+            "sharedLabelTerms": [],
+            "sharedLabelEntities": []
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+          "supportingEntities": [],
+          "supportingTerms": [
+            "visit"
+          ],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 1,
+            "leftEventLabel": "Hegseth uses Venezuela visit to boast of Maduro’s capture by US military",
+            "rightEventLabel": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+            "sharedLabelTerms": [
+              "visit"
+            ],
+            "sharedLabelEntities": []
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+          "rightEvent": null,
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump"
+            }
+          ],
+          "supportingTerms": [],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 1,
+            "leftEventLabel": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+            "rightEventLabel": "Pakistani man sentenced to 27 years in US prison over Trump murder plot",
+            "sharedLabelTerms": [],
+            "sharedLabelEntities": [
+              "Donald Trump"
+            ]
+          }
+        },
+        {
+          "classification": "SAME_EVENT",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+          "rightEvent": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump"
+            },
+            {
+              "canonical": "Xi Jinping",
+              "type": "PERSON",
+              "matchedText": "Xi Jinping"
+            },
+            {
+              "canonical": "APEC",
+              "type": "EVENT_PROGRAM",
+              "matchedText": "Apec"
+            },
+            {
+              "canonical": "China",
+              "type": "COUNTRY",
+              "matchedText": "China"
+            }
+          ],
+          "supportingTerms": [
+            "summit"
+          ],
+          "explanation": "A named event/context and multiple distinctive shared terms point to the same occurrence; this remains a candidate pending review.",
+          "evidence": {
+            "facetsCompared": 1,
+            "selectedFacets": [
+              "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+              "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’"
+            ],
+            "closeTime": true,
+            "missingBodies": false,
+            "bodyContextTerms": [
+              "added",
+              "administration",
+              "asia-pacific",
+              "became",
+              "chinese",
+              "claims",
+              "close",
+              "closed",
+              "continue",
+              "cooperation",
+              "donald",
+              "economic"
+            ],
+            "publisherCoverage": {
+              "left": [
+                "Guardian"
+              ],
+              "right": [
+                "Guardian"
+              ],
+              "shared": [
+                "Guardian"
+              ],
+              "crossPublisher": false
+            }
+          }
+        },
+        {
+          "classification": "BROADER_CONTEXT_ONLY",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+          "rightEvent": null,
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump"
+            },
+            {
+              "canonical": "Xi Jinping",
+              "type": "PERSON",
+              "matchedText": "Xi Jinping"
+            }
+          ],
+          "supportingTerms": [
+            "summit"
+          ],
+          "explanation": "The events share an issue or public context but lack evidence that they are the same occurrence or continuing storyline; keep them separate under any parent.",
+          "evidence": {
+            "facetsCompared": 1,
+            "selectedFacets": [
+              "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+              "Top House Democrat questions what Trump accomplished in Xi-Putin summit"
+            ],
+            "sharedSignals": [],
+            "historical": false,
+            "composite": false,
+            "bodyContextTerms": [
+              "allies",
+              "chinese",
+              "going",
+              "house",
+              "jinping",
+              "morning"
+            ],
+            "publisherCoverage": {
+              "left": [
+                "Guardian"
+              ],
+              "right": [
+                "NPR"
+              ],
+              "shared": [],
+              "crossPublisher": true
+            }
+          }
+        },
+        {
+          "classification": "BROADER_CONTEXT_ONLY",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+          "rightEvent": null,
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump"
+            },
+            {
+              "canonical": "Xi Jinping",
+              "type": "PERSON",
+              "matchedText": "Xi Jinping"
+            }
+          ],
+          "supportingTerms": [
+            "summit"
+          ],
+          "explanation": "The events share an issue or public context but lack evidence that they are the same occurrence or continuing storyline; keep them separate under any parent.",
+          "evidence": {
+            "facetsCompared": 1,
+            "selectedFacets": [
+              "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+              "New page in history? Xi, Trump and Putin summit was more of a footnote"
+            ],
+            "sharedSignals": [],
+            "historical": false,
+            "composite": false,
+            "bodyContextTerms": [
+              "asia-pacific",
+              "asleep",
+              "continue",
+              "despite",
+              "donald",
+              "energy",
+              "events",
+              "falling",
+              "hands",
+              "hardly",
+              "jinping",
+              "leader"
+            ],
+            "publisherCoverage": {
+              "left": [
+                "Guardian"
+              ],
+              "right": [
+                "Guardian"
+              ],
+              "shared": [
+                "Guardian"
+              ],
+              "crossPublisher": false
+            }
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump"
+            },
+            {
+              "canonical": "Xi Jinping",
+              "type": "PERSON",
+              "matchedText": "Xi"
+            }
+          ],
+          "supportingTerms": [],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 1,
+            "leftEventLabel": "Watch: What did Trump, Xi and Putin get out of their historic meeting?",
+            "rightEventLabel": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+            "sharedLabelTerms": [],
+            "sharedLabelEntities": [
+              "Donald Trump",
+              "Xi Jinping"
+            ]
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+          "supportingEntities": [],
+          "supportingTerms": [
+            "summit"
+          ],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 1,
+            "leftEventLabel": "Anthony Zurcher: Trilateral summit high on spectacle, short on substance",
+            "rightEventLabel": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+            "sharedLabelTerms": [
+              "summit"
+            ],
+            "sharedLabelEntities": []
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump's"
+            }
+          ],
+          "supportingTerms": [],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 1,
+            "leftEventLabel": "Judges have put Trump's arch and golf course on hold, but only for a matter of days",
+            "rightEventLabel": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+            "sharedLabelTerms": [],
+            "sharedLabelEntities": [
+              "Donald Trump"
+            ]
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump's"
+            }
+          ],
+          "supportingTerms": [],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 1,
+            "leftEventLabel": "Judges have put Trump's arch and golf course on hold, but only for a matter of days",
+            "rightEventLabel": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+            "sharedLabelTerms": [],
+            "sharedLabelEntities": [
+              "Donald Trump"
+            ]
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump"
+            },
+            {
+              "canonical": "Xi Jinping",
+              "type": "PERSON",
+              "matchedText": "Xi"
+            }
+          ],
+          "supportingTerms": [],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 3,
+            "leftEventLabel": "Ukraine / Putin / Europe",
+            "rightEventLabel": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+            "sharedLabelTerms": [],
+            "sharedLabelEntities": []
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump"
+            }
+          ],
+          "supportingTerms": [],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 1,
+            "leftEventLabel": "Trump DoJ moves to drop legal challenge to Mary Peltola’s Alaska Senate win",
+            "rightEventLabel": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+            "sharedLabelTerms": [],
+            "sharedLabelEntities": [
+              "Donald Trump"
+            ]
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump"
+            }
+          ],
+          "supportingTerms": [],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 1,
+            "leftEventLabel": "Trump DoJ moves to drop legal challenge to Mary Peltola’s Alaska Senate win",
+            "rightEventLabel": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+            "sharedLabelTerms": [],
+            "sharedLabelEntities": [
+              "Donald Trump"
+            ]
+          }
+        },
+        {
+          "classification": "BROADER_CONTEXT_ONLY",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump"
+            },
+            {
+              "canonical": "Xi Jinping",
+              "type": "PERSON",
+              "matchedText": "Xi"
+            },
+            {
+              "canonical": "Vladimir Putin",
+              "type": "PERSON",
+              "matchedText": "Putin"
+            }
+          ],
+          "supportingTerms": [
+            "summit"
+          ],
+          "explanation": "The events share an issue or public context but lack evidence that they are the same occurrence or continuing storyline; keep them separate under any parent.",
+          "evidence": {
+            "facetsCompared": 1,
+            "selectedFacets": [
+              "Top House Democrat questions what Trump accomplished in Xi-Putin summit",
+              "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’"
+            ],
+            "sharedSignals": [],
+            "historical": false,
+            "composite": false,
+            "bodyContextTerms": [
+              "chinese",
+              "discussing",
+              "jinping",
+              "meeting",
+              "progress",
+              "russian",
+              "shenzhen",
+              "talks",
+              "vladimir"
+            ],
+            "publisherCoverage": {
+              "left": [
+                "NPR"
+              ],
+              "right": [
+                "Guardian"
+              ],
+              "shared": [],
+              "crossPublisher": true
+            }
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump"
+            },
+            {
+              "canonical": "Xi Jinping",
+              "type": "PERSON",
+              "matchedText": "Xi"
+            },
+            {
+              "canonical": "Vladimir Putin",
+              "type": "PERSON",
+              "matchedText": "Putin"
+            }
+          ],
+          "supportingTerms": [],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 1,
+            "leftEventLabel": "Watch: What did Trump, Xi and Putin get out of their historic meeting?",
+            "rightEventLabel": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+            "sharedLabelTerms": [],
+            "sharedLabelEntities": [
+              "Donald Trump",
+              "Xi Jinping",
+              "Vladimir Putin"
+            ]
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+          "supportingEntities": [],
+          "supportingTerms": [
+            "summit"
+          ],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 1,
+            "leftEventLabel": "Anthony Zurcher: Trilateral summit high on spectacle, short on substance",
+            "rightEventLabel": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+            "sharedLabelTerms": [
+              "summit"
+            ],
+            "sharedLabelEntities": []
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump"
+            },
+            {
+              "canonical": "Vladimir Putin",
+              "type": "PERSON",
+              "matchedText": "Putin"
+            },
+            {
+              "canonical": "Xi Jinping",
+              "type": "PERSON",
+              "matchedText": "Xi"
+            }
+          ],
+          "supportingTerms": [],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 3,
+            "leftEventLabel": "Ukraine / Putin / Europe",
+            "rightEventLabel": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+            "sharedLabelTerms": [],
+            "sharedLabelEntities": [
+              "Vladimir Putin"
+            ]
+          }
+        },
+        {
+          "classification": "INSUFFICIENT_EVIDENCE",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+          "rightEvent": null,
+          "supportingEntities": [
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump"
+            }
+          ],
+          "supportingTerms": [],
+          "explanation": "Member article overlap is insufficient because the saved event clusters may contain mixed topics; the cluster labels do not independently confirm a narrative relationship.",
+          "evidence": {
+            "facetsCompared": 1,
+            "leftEventLabel": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+            "rightEventLabel": "Pakistani man sentenced to 27 years in US prison over Trump murder plot",
+            "sharedLabelTerms": [],
+            "sharedLabelEntities": [
+              "Donald Trump"
+            ]
+          }
+        },
+        {
+          "classification": "BROADER_CONTEXT_ONLY",
+          "reviewStatus": "NEEDS_REVIEW",
+          "leftEvent": null,
+          "rightEvent": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+          "supportingEntities": [
+            {
+              "canonical": "Xi Jinping",
+              "type": "PERSON",
+              "matchedText": "Xi"
+            },
+            {
+              "canonical": "Donald Trump",
+              "type": "PERSON",
+              "matchedText": "Trump"
+            },
+            {
+              "canonical": "Vladimir Putin",
+              "type": "PERSON",
+              "matchedText": "Putin"
+            }
+          ],
+          "supportingTerms": [
+            "summit"
+          ],
+          "explanation": "The events share an issue or public context but lack evidence that they are the same occurrence or continuing storyline; keep them separate under any parent.",
+          "evidence": {
+            "facetsCompared": 1,
+            "selectedFacets": [
+              "New page in history? Xi, Trump and Putin summit was more of a footnote",
+              "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’"
+            ],
+            "sharedSignals": [],
+            "historical": false,
+            "composite": false,
+            "bodyContextTerms": [
+              "agenda",
+              "asia-pacific",
+              "boost",
+              "carve-up",
+              "continue",
+              "describing",
+              "diplomacy",
+              "discuss",
+              "donald",
+              "economy",
+              "failed",
+              "filled"
+            ],
+            "publisherCoverage": {
+              "left": [
+                "Guardian"
+              ],
+              "right": [
+                "Guardian"
+              ],
+              "shared": [
+                "Guardian"
+              ],
+              "crossPublisher": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

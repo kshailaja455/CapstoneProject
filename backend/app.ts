@@ -4,6 +4,8 @@ import morgan from "morgan";
 
 import clusterRoutes from "./routes/clusters";
 import ingestRoutes from "./routes/ingest";
+import narrativeRoutes from "./routes/narratives";
+import publisherRoutes from "./routes/publishers";
 
 const app = express();
 
@@ -35,6 +37,8 @@ app.get("/", (_, res) => {
 
 app.use(clusterRoutes);
 app.use(ingestRoutes);
+app.use(narrativeRoutes);
+app.use(publisherRoutes);
 
 app.use((_, res) => {
     res.status(404).json({ success: false, error: "Route not found" });

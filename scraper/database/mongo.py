@@ -13,7 +13,7 @@ db = client[MONGO_DB]
 
 articles = db["articles"]
 clusters = db["clusters"]
-jobs = db["ingest_jobs"]
+jobs = db["ingestjobs"]
 
 articles.create_index("url", unique=True)
 articles.create_index("contentHash")

@@ -1,0 +1,2231 @@
+[
+  {
+    "_id": "6b001e011bdaff55bdb7c2fc",
+    "label": "Tuition / Fees / Tuition Fees",
+    "topTerms": [
+      "tuition",
+      "fees",
+      "tuition fees"
+    ],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c56",
+      "6aff8f2ea09a3c50c7cf4604",
+      "6aff8f2ea09a3c50c7cf4608",
+      "6aff8f2ea09a3c50c7cf45cc"
+    ],
+    "sources": [
+      "BBC",
+      "Guardian"
+    ],
+    "articleCount": 4,
+    "startTime": "2026-11-19T13:11:23.000Z",
+    "endTime": "2026-11-20T10:02:31.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c56",
+    "createdAt": "2026-11-20T10:16:33.670Z",
+    "updatedAt": "2026-11-20T10:16:33.670Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c2fd",
+    "label": "Global stock markets slump as Anthropic IPO fails to stem AI sell-off",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c53"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T10:02:21.000Z",
+    "endTime": "2026-11-20T10:02:21.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c53",
+    "createdAt": "2026-11-20T10:16:33.674Z",
+    "updatedAt": "2026-11-20T10:16:33.674Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c2fe",
+    "label": "Rikers / City / Jail",
+    "topTerms": [
+      "rikers",
+      "city",
+      "jail"
+    ],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c5c",
+      "6b001e01a09a3c50c7cf4c4f"
+    ],
+    "sources": [
+      "Guardian",
+      "NPR"
+    ],
+    "articleCount": 2,
+    "startTime": "2026-11-20T10:00:00.000Z",
+    "endTime": "2026-11-20T10:00:30.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c5c",
+    "createdAt": "2026-11-20T10:16:33.679Z",
+    "updatedAt": "2026-11-20T10:16:33.679Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c2ff",
+    "label": "How exactly did Trump get so rich on crypto? We explain",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c4e"
+    ],
+    "sources": [
+      "NPR"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T10:00:00.000Z",
+    "endTime": "2026-11-20T10:00:00.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c4e",
+    "createdAt": "2026-11-20T10:16:33.680Z",
+    "updatedAt": "2026-11-20T10:16:33.680Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c300",
+    "label": "Critics are calling what brand-new release a masterpiece? The quiz knows",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c4d"
+    ],
+    "sources": [
+      "NPR"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T10:00:00.000Z",
+    "endTime": "2026-11-20T10:00:00.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c4d",
+    "createdAt": "2026-11-20T10:16:33.681Z",
+    "updatedAt": "2026-11-20T10:16:33.681Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c301",
+    "label": "Sales / Retail / Food",
+    "topTerms": [
+      "sales",
+      "retail",
+      "food"
+    ],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c4a",
+      "6b001e01a09a3c50c7cf4c59"
+    ],
+    "sources": [
+      "BBC",
+      "Guardian"
+    ],
+    "articleCount": 2,
+    "startTime": "2026-11-20T08:36:13.000Z",
+    "endTime": "2026-11-20T09:44:56.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c4a",
+    "createdAt": "2026-11-20T10:16:33.682Z",
+    "updatedAt": "2026-11-20T10:16:33.682Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c302",
+    "label": "Rams star Nacua suspended for personal conduct violation",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c4c"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T09:38:14.000Z",
+    "endTime": "2026-11-20T09:38:14.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c4c",
+    "createdAt": "2026-11-20T10:16:33.683Z",
+    "updatedAt": "2026-11-20T10:16:33.683Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c303",
+    "label": "Cairncross / Outages / White House",
+    "topTerms": [
+      "cairncross",
+      "outages",
+      "white house"
+    ],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c48",
+      "6affaf7ea09a3c50c7cf462a"
+    ],
+    "sources": [
+      "BBC",
+      "Guardian"
+    ],
+    "articleCount": 2,
+    "startTime": "2026-11-20T01:25:05.000Z",
+    "endTime": "2026-11-20T09:37:59.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c48",
+    "createdAt": "2026-11-20T10:16:33.685Z",
+    "updatedAt": "2026-11-20T10:16:33.685Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c304",
+    "label": "Three Kyiv bridges hit during major Russian missile attack",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c47"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T09:31:24.000Z",
+    "endTime": "2026-11-20T09:31:24.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c47",
+    "createdAt": "2026-11-20T10:16:33.687Z",
+    "updatedAt": "2026-11-20T10:16:33.687Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c305",
+    "label": "Nvidia / Huang / Constantino",
+    "topTerms": [
+      "nvidia",
+      "huang",
+      "constantino"
+    ],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c54",
+      "6aff8f2ea09a3c50c7cf4618"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 2,
+    "startTime": "2026-11-19T23:54:58.000Z",
+    "endTime": "2026-11-20T09:18:30.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c54",
+    "createdAt": "2026-11-20T10:16:33.688Z",
+    "updatedAt": "2026-11-20T10:16:33.688Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c306",
+    "label": "The U.K. and EU hold a rare summit to strengthen ties",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c50"
+    ],
+    "sources": [
+      "NPR"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T09:14:41.000Z",
+    "endTime": "2026-11-20T09:14:41.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c50",
+    "createdAt": "2026-11-20T10:16:33.692Z",
+    "updatedAt": "2026-11-20T10:16:33.692Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c307",
+    "label": "California’s coastal communities on alert as biggest waves in years hit state",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c52"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T09:03:20.000Z",
+    "endTime": "2026-11-20T09:03:20.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c52",
+    "createdAt": "2026-11-20T10:16:33.695Z",
+    "updatedAt": "2026-11-20T10:16:33.695Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c308",
+    "label": "British Library to outsource security and ‘repurpose’ reading rooms as business spaces",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c58"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T09:00:27.000Z",
+    "endTime": "2026-11-20T09:00:27.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c58",
+    "createdAt": "2026-11-20T10:16:33.696Z",
+    "updatedAt": "2026-11-20T10:16:33.696Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c309",
+    "label": "Joanne / Young / Joanne Young",
+    "topTerms": [
+      "joanne",
+      "young",
+      "joanne young"
+    ],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c46",
+      "6b001e01a09a3c50c7cf4c5a",
+      "6aff8f2ea09a3c50c7cf45c5",
+      "6aff8f2ea09a3c50c7cf45d2"
+    ],
+    "sources": [
+      "BBC",
+      "Guardian"
+    ],
+    "articleCount": 4,
+    "startTime": "2026-11-19T17:18:24.000Z",
+    "endTime": "2026-11-20T09:00:02.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c46",
+    "createdAt": "2026-11-20T10:16:33.698Z",
+    "updatedAt": "2026-11-20T10:16:33.698Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c30a",
+    "label": "What the Brussels summit could mean for the Brexit deal",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c45"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T08:07:06.000Z",
+    "endTime": "2026-11-20T08:07:06.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c45",
+    "createdAt": "2026-11-20T10:16:33.700Z",
+    "updatedAt": "2026-11-20T10:16:33.700Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c30b",
+    "label": "Senior Tories urge Badenoch to drop Brexit talk in major strategy shift, sources say",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c57"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T08:00:26.000Z",
+    "endTime": "2026-11-20T08:00:26.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c57",
+    "createdAt": "2026-11-20T10:16:33.701Z",
+    "updatedAt": "2026-11-20T10:16:33.701Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c30c",
+    "label": "Moore eyes Kane shirt as Spurs' past and future stars meet",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c4b"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T07:26:36.000Z",
+    "endTime": "2026-11-20T07:26:36.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c4b",
+    "createdAt": "2026-11-20T10:16:33.702Z",
+    "updatedAt": "2026-11-20T10:16:33.702Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c30d",
+    "label": "UK government borrowing rises less than forecast in surprise boost for chancellor John Healey",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c5b"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T07:25:31.000Z",
+    "endTime": "2026-11-20T07:25:31.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c5b",
+    "createdAt": "2026-11-20T10:16:33.704Z",
+    "updatedAt": "2026-11-20T10:16:33.704Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c30e",
+    "label": "Vape users hospitalised after losing consciousness, prompting public health warning in New South Wales",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c55"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T07:17:01.000Z",
+    "endTime": "2026-11-20T07:17:01.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c55",
+    "createdAt": "2026-11-20T10:16:33.705Z",
+    "updatedAt": "2026-11-20T10:16:33.705Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c30f",
+    "label": "UK braces for coldest night of autumn so far with temperature of -10C forecast",
+    "topTerms": [],
+    "articleIds": [
+      "6afff398a09a3c50c7cf4640"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T06:56:58.000Z",
+    "endTime": "2026-11-20T06:56:58.000Z",
+    "representativeArticleId": "6afff398a09a3c50c7cf4640",
+    "createdAt": "2026-11-20T10:16:33.706Z",
+    "updatedAt": "2026-11-20T10:16:33.706Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c310",
+    "label": "Baby born with heart abnormalities ‘didn’t have a chance’ after non-medical free birth, NSW inquest hears",
+    "topTerms": [],
+    "articleIds": [
+      "6afff398a09a3c50c7cf4641"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T06:51:54.000Z",
+    "endTime": "2026-11-20T06:51:54.000Z",
+    "representativeArticleId": "6afff398a09a3c50c7cf4641",
+    "createdAt": "2026-11-20T10:16:33.711Z",
+    "updatedAt": "2026-11-20T10:16:33.711Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c311",
+    "label": "Missing fishing boat Kilda recovered from waters off Orkney",
+    "topTerms": [],
+    "articleIds": [
+      "6affec83a09a3c50c7cf463e"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T06:30:47.000Z",
+    "endTime": "2026-11-20T06:30:47.000Z",
+    "representativeArticleId": "6affec83a09a3c50c7cf463e",
+    "createdAt": "2026-11-20T10:16:33.715Z",
+    "updatedAt": "2026-11-20T10:16:33.715Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c312",
+    "label": "The art of protection - inside an F1 helmet factory",
+    "topTerms": [],
+    "articleIds": [
+      "6afff002a09a3c50c7cf463f"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T06:29:04.000Z",
+    "endTime": "2026-11-20T06:29:04.000Z",
+    "representativeArticleId": "6afff002a09a3c50c7cf463f",
+    "createdAt": "2026-11-20T10:16:33.717Z",
+    "updatedAt": "2026-11-20T10:16:33.717Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c313",
+    "label": "Loneliness & mood swings - what's it like to miss a season through injury?",
+    "topTerms": [],
+    "articleIds": [
+      "6affe8f8a09a3c50c7cf463d"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T06:13:23.000Z",
+    "endTime": "2026-11-20T06:13:23.000Z",
+    "representativeArticleId": "6affe8f8a09a3c50c7cf463d",
+    "createdAt": "2026-11-20T10:16:33.719Z",
+    "updatedAt": "2026-11-20T10:16:33.719Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c314",
+    "label": "Russell fastest in Las Vegas practice after rain",
+    "topTerms": [],
+    "articleIds": [
+      "6affe58ca09a3c50c7cf4636"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T06:07:08.000Z",
+    "endTime": "2026-11-20T06:07:08.000Z",
+    "representativeArticleId": "6affe58ca09a3c50c7cf4636",
+    "createdAt": "2026-11-20T10:16:33.720Z",
+    "updatedAt": "2026-11-20T10:16:33.720Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c315",
+    "label": "Mouldy, infested housing for vulnerable people sold as ethical investments abroad",
+    "topTerms": [],
+    "articleIds": [
+      "6affe58ca09a3c50c7cf4632"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T06:00:33.000Z",
+    "endTime": "2026-11-20T06:00:33.000Z",
+    "representativeArticleId": "6affe58ca09a3c50c7cf4632",
+    "createdAt": "2026-11-20T10:16:33.723Z",
+    "updatedAt": "2026-11-20T10:16:33.723Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c316",
+    "label": "Academy trust pays out after Prevent threat over children’s Palestine badges",
+    "topTerms": [],
+    "articleIds": [
+      "6affe58ca09a3c50c7cf463b"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T06:00:23.000Z",
+    "endTime": "2026-11-20T06:00:23.000Z",
+    "representativeArticleId": "6affe58ca09a3c50c7cf463b",
+    "createdAt": "2026-11-20T10:16:33.728Z",
+    "updatedAt": "2026-11-20T10:16:33.728Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c317",
+    "label": "Mysterious Mercury is about to get a visitor - after spacecraft's eight-year epic voyage",
+    "topTerms": [],
+    "articleIds": [
+      "6affe58ca09a3c50c7cf4633"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T05:59:56.000Z",
+    "endTime": "2026-11-20T05:59:56.000Z",
+    "representativeArticleId": "6affe58ca09a3c50c7cf4633",
+    "createdAt": "2026-11-20T10:16:33.731Z",
+    "updatedAt": "2026-11-20T10:16:33.731Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c318",
+    "label": "Race to be next UN secretary general exposes divisions among world powers",
+    "topTerms": [],
+    "articleIds": [
+      "6affe58ca09a3c50c7cf4638"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T05:00:24.000Z",
+    "endTime": "2026-11-20T05:00:24.000Z",
+    "representativeArticleId": "6affe58ca09a3c50c7cf4638",
+    "createdAt": "2026-11-20T10:16:33.733Z",
+    "updatedAt": "2026-11-20T10:16:33.733Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c319",
+    "label": "Patient ‘horrified’ to find her sensitive discussions were shared with more than 100,000 NHS staff",
+    "topTerms": [],
+    "articleIds": [
+      "6affe58ca09a3c50c7cf463c"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T05:00:23.000Z",
+    "endTime": "2026-11-20T05:00:23.000Z",
+    "representativeArticleId": "6affe58ca09a3c50c7cf463c",
+    "createdAt": "2026-11-20T10:16:33.734Z",
+    "updatedAt": "2026-11-20T10:16:33.734Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c31a",
+    "label": "Iraq university’s removal of male professors teaching women sparks weeks of protests",
+    "topTerms": [],
+    "articleIds": [
+      "6affe58ca09a3c50c7cf463a"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T05:00:23.000Z",
+    "endTime": "2026-11-20T05:00:23.000Z",
+    "representativeArticleId": "6affe58ca09a3c50c7cf463a",
+    "createdAt": "2026-11-20T10:16:33.736Z",
+    "updatedAt": "2026-11-20T10:16:33.737Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c31b",
+    "label": "Beau Lamarre-Condon’s explanations of body disposal ‘ring hollow’, court hears",
+    "topTerms": [],
+    "articleIds": [
+      "6affe58ca09a3c50c7cf4639"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T04:58:21.000Z",
+    "endTime": "2026-11-20T04:58:21.000Z",
+    "representativeArticleId": "6affe58ca09a3c50c7cf4639",
+    "createdAt": "2026-11-20T10:16:33.738Z",
+    "updatedAt": "2026-11-20T10:16:33.738Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c31c",
+    "label": "NextDC vows to keep future datacentres away from homes after community backlash in Melbourne",
+    "topTerms": [],
+    "articleIds": [
+      "6affd3b3a09a3c50c7cf4631"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T04:37:08.000Z",
+    "endTime": "2026-11-20T04:37:08.000Z",
+    "representativeArticleId": "6affd3b3a09a3c50c7cf4631",
+    "createdAt": "2026-11-20T10:16:33.740Z",
+    "updatedAt": "2026-11-20T10:16:33.740Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c31d",
+    "label": "‘Perfect weapon’: diabetic woman found guilty of murdering her 94-year-old parents with insulin",
+    "topTerms": [],
+    "articleIds": [
+      "6affccb6a09a3c50c7cf462f"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T04:15:16.000Z",
+    "endTime": "2026-11-20T04:15:16.000Z",
+    "representativeArticleId": "6affccb6a09a3c50c7cf462f",
+    "createdAt": "2026-11-20T10:16:33.743Z",
+    "updatedAt": "2026-11-20T10:16:33.744Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c31e",
+    "label": "Is it time to change the UK age of consent? – podcast",
+    "topTerms": [],
+    "articleIds": [
+      "6affccb6a09a3c50c7cf4630"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T03:00:19.000Z",
+    "endTime": "2026-11-20T03:00:19.000Z",
+    "representativeArticleId": "6affccb6a09a3c50c7cf4630",
+    "createdAt": "2026-11-20T10:16:33.746Z",
+    "updatedAt": "2026-11-20T10:16:33.746Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c31f",
+    "label": "GTA 6 breaks records as sales top $2.3bn - industry estimate",
+    "topTerms": [],
+    "articleIds": [
+      "6affccb6a09a3c50c7cf462d"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T02:54:40.000Z",
+    "endTime": "2026-11-20T02:54:40.000Z",
+    "representativeArticleId": "6affccb6a09a3c50c7cf462d",
+    "createdAt": "2026-11-20T10:16:33.750Z",
+    "updatedAt": "2026-11-20T10:16:33.750Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c320",
+    "label": "Trump DoJ moves to drop legal challenge to Mary Peltola’s Alaska Senate win",
+    "topTerms": [],
+    "articleIds": [
+      "6affb688a09a3c50c7cf462c"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T02:43:33.000Z",
+    "endTime": "2026-11-20T02:43:33.000Z",
+    "representativeArticleId": "6affb688a09a3c50c7cf462c",
+    "createdAt": "2026-11-20T10:16:33.752Z",
+    "updatedAt": "2026-11-20T10:16:33.752Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c321",
+    "label": "US army postpones plan to detonate bomb-making chemical amid outcry",
+    "topTerms": [],
+    "articleIds": [
+      "6affb2fea09a3c50c7cf462b"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T02:30:10.000Z",
+    "endTime": "2026-11-20T02:30:10.000Z",
+    "representativeArticleId": "6affb2fea09a3c50c7cf462b",
+    "createdAt": "2026-11-20T10:16:33.754Z",
+    "updatedAt": "2026-11-20T10:16:33.754Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c322",
+    "label": "Does our ethnicity change how we experience dying?",
+    "topTerms": [],
+    "articleIds": [
+      "6affaf7ea09a3c50c7cf4629"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T01:29:43.000Z",
+    "endTime": "2026-11-20T01:29:43.000Z",
+    "representativeArticleId": "6affaf7ea09a3c50c7cf4629",
+    "createdAt": "2026-11-20T10:16:33.758Z",
+    "updatedAt": "2026-11-20T10:16:33.758Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c323",
+    "label": "New Hunger Games cast say joining the franchise is 'nerve-racking'",
+    "topTerms": [],
+    "articleIds": [
+      "6affe58ca09a3c50c7cf4634"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T01:11:57.000Z",
+    "endTime": "2026-11-20T01:11:57.000Z",
+    "representativeArticleId": "6affe58ca09a3c50c7cf4634",
+    "createdAt": "2026-11-20T10:16:33.764Z",
+    "updatedAt": "2026-11-20T10:16:33.764Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c324",
+    "label": "'The bravest woman in Britain' and 'Silence is not an option'",
+    "topTerms": [],
+    "articleIds": [
+      "6aff9e48a09a3c50c7cf4627"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T01:05:29.000Z",
+    "endTime": "2026-11-20T01:05:29.000Z",
+    "representativeArticleId": "6aff9e48a09a3c50c7cf4627",
+    "createdAt": "2026-11-20T10:16:33.766Z",
+    "updatedAt": "2026-11-20T10:16:33.766Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c325",
+    "label": "Next round of BBC cuts will be more noticeable to audiences, report warns",
+    "topTerms": [],
+    "articleIds": [
+      "6aff97f0a09a3c50c7cf4624"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T00:38:57.000Z",
+    "endTime": "2026-11-20T00:38:57.000Z",
+    "representativeArticleId": "6aff97f0a09a3c50c7cf4624",
+    "createdAt": "2026-11-20T10:16:33.767Z",
+    "updatedAt": "2026-11-20T10:16:33.767Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c326",
+    "label": "Religious messages agriculture secretary emailed to staff deemed unconstitutional",
+    "topTerms": [],
+    "articleIds": [
+      "6aff98b0a09a3c50c7cf4625"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T00:31:24.000Z",
+    "endTime": "2026-11-20T00:31:24.000Z",
+    "representativeArticleId": "6aff98b0a09a3c50c7cf4625",
+    "createdAt": "2026-11-20T10:16:33.769Z",
+    "updatedAt": "2026-11-20T10:16:33.769Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c327",
+    "label": "Religion should be removed from terrorism definition under Australian law as it gives ‘false credibility’, watchdog says",
+    "topTerms": [],
+    "articleIds": [
+      "6aff96d4a09a3c50c7cf4621"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T00:19:57.000Z",
+    "endTime": "2026-11-20T00:19:57.000Z",
+    "representativeArticleId": "6aff96d4a09a3c50c7cf4621",
+    "createdAt": "2026-11-20T10:16:33.771Z",
+    "updatedAt": "2026-11-20T10:16:33.771Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c328",
+    "label": "US warned supplying nuclear-powered submarines to Australia would diminish its own fleet for ‘many years’",
+    "topTerms": [],
+    "articleIds": [
+      "6aff96d4a09a3c50c7cf4622"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T00:16:29.000Z",
+    "endTime": "2026-11-20T00:16:29.000Z",
+    "representativeArticleId": "6aff96d4a09a3c50c7cf4622",
+    "createdAt": "2026-11-20T10:16:33.774Z",
+    "updatedAt": "2026-11-20T10:16:33.774Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c329",
+    "label": "'I tell my son it's just fireworks': People inside besieged Yemeni city speak to BBC",
+    "topTerms": [],
+    "articleIds": [
+      "6aff97f0a09a3c50c7cf4623"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T00:13:21.000Z",
+    "endTime": "2026-11-20T00:13:21.000Z",
+    "representativeArticleId": "6aff97f0a09a3c50c7cf4623",
+    "createdAt": "2026-11-20T10:16:33.777Z",
+    "updatedAt": "2026-11-20T10:16:33.777Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c32a",
+    "label": "Airbnb's divisive new house rules come into force",
+    "topTerms": [],
+    "articleIds": [
+      "6affaf7ea09a3c50c7cf4628"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T00:12:28.000Z",
+    "endTime": "2026-11-20T00:12:28.000Z",
+    "representativeArticleId": "6affaf7ea09a3c50c7cf4628",
+    "createdAt": "2026-11-20T10:16:33.780Z",
+    "updatedAt": "2026-11-20T10:16:33.780Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c32b",
+    "label": "Fish and eggs al desko? The dos and don'ts of the lunch break",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c49"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T00:08:37.000Z",
+    "endTime": "2026-11-20T00:08:37.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c49",
+    "createdAt": "2026-11-20T10:16:33.782Z",
+    "updatedAt": "2026-11-20T10:16:33.782Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c32c",
+    "label": "Massive hope for pancreatic cancer pill after trial saw tumours vanish",
+    "topTerms": [],
+    "articleIds": [
+      "6aff90e1a09a3c50c7cf461e"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T00:08:22.000Z",
+    "endTime": "2026-11-20T00:08:22.000Z",
+    "representativeArticleId": "6aff90e1a09a3c50c7cf461e",
+    "createdAt": "2026-11-20T10:16:33.784Z",
+    "updatedAt": "2026-11-20T10:16:33.784Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c32d",
+    "label": "Tens of thousands of UK fridges secured from hackers in secret nationwide operation",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45c8"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-20T00:02:07.000Z",
+    "endTime": "2026-11-20T00:02:07.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45c8",
+    "createdAt": "2026-11-20T10:16:33.785Z",
+    "updatedAt": "2026-11-20T10:16:33.785Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c32e",
+    "label": "Arsenal 'have ingredients' but Europe's elite on another level",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45e2"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T23:57:54.000Z",
+    "endTime": "2026-11-19T23:57:54.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45e2",
+    "createdAt": "2026-11-20T10:16:33.786Z",
+    "updatedAt": "2026-11-20T10:16:33.786Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c32f",
+    "label": "Anthropic / Company / Shares",
+    "topTerms": [
+      "anthropic",
+      "company",
+      "shares"
+    ],
+    "articleIds": [
+      "6affe58ca09a3c50c7cf4635",
+      "6aff8f2ea09a3c50c7cf45c6",
+      "6aff96d4a09a3c50c7cf4620"
+    ],
+    "sources": [
+      "BBC",
+      "NPR"
+    ],
+    "articleCount": 3,
+    "startTime": "2026-11-19T10:00:00.000Z",
+    "endTime": "2026-11-19T23:52:25.000Z",
+    "representativeArticleId": "6affe58ca09a3c50c7cf4635",
+    "createdAt": "2026-11-20T10:16:33.788Z",
+    "updatedAt": "2026-11-20T10:16:33.788Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c330",
+    "label": "Zoo / Fiona / Hat",
+    "topTerms": [
+      "zoo",
+      "fiona",
+      "hat"
+    ],
+    "articleIds": [
+      "6affccb6a09a3c50c7cf462e",
+      "6aff8f2ea09a3c50c7cf461a"
+    ],
+    "sources": [
+      "BBC",
+      "Guardian"
+    ],
+    "articleCount": 2,
+    "startTime": "2026-11-19T22:09:55.000Z",
+    "endTime": "2026-11-19T23:40:29.000Z",
+    "representativeArticleId": "6affccb6a09a3c50c7cf462e",
+    "createdAt": "2026-11-20T10:16:33.790Z",
+    "updatedAt": "2026-11-20T10:16:33.790Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c331",
+    "label": "An elevator, a brick wall and a bathroom: scientists use gravity to send ‘practically unblockable’ message",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45ff"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T23:30:26.000Z",
+    "endTime": "2026-11-19T23:30:26.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45ff",
+    "createdAt": "2026-11-20T10:16:33.795Z",
+    "updatedAt": "2026-11-20T10:16:33.795Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c332",
+    "label": "Florida to carry out record-breaking 20th execution of the year",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf4619"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T23:15:42.000Z",
+    "endTime": "2026-11-19T23:15:42.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf4619",
+    "createdAt": "2026-11-20T10:16:33.799Z",
+    "updatedAt": "2026-11-20T10:16:33.799Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c333",
+    "label": "Howard-era minister Sharman Stone dies via voluntary assisted dying, aged 75",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf4600"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T23:07:02.000Z",
+    "endTime": "2026-11-19T23:07:02.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf4600",
+    "createdAt": "2026-11-20T10:16:33.802Z",
+    "updatedAt": "2026-11-20T10:16:33.802Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c334",
+    "label": "Girls as young as five targeted for upskirting as charges continue to rise",
+    "topTerms": [],
+    "articleIds": [
+      "6aff94e1a09a3c50c7cf461f"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T22:53:56.000Z",
+    "endTime": "2026-11-19T22:53:56.000Z",
+    "representativeArticleId": "6aff94e1a09a3c50c7cf461f",
+    "createdAt": "2026-11-20T10:16:33.804Z",
+    "updatedAt": "2026-11-20T10:16:33.804Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c335",
+    "label": "Markle / Abuse / Images",
+    "topTerms": [
+      "markle",
+      "abuse",
+      "images"
+    ],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45cf",
+      "6aff8f2ea09a3c50c7cf4613"
+    ],
+    "sources": [
+      "BBC",
+      "Guardian"
+    ],
+    "articleCount": 2,
+    "startTime": "2026-11-19T22:05:18.000Z",
+    "endTime": "2026-11-19T22:48:22.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45cf",
+    "createdAt": "2026-11-20T10:16:33.807Z",
+    "updatedAt": "2026-11-20T10:16:33.807Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c336",
+    "label": "Unseeded Sykes stuns Humphries in Grand Slam thriller",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45e3"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T22:45:41.000Z",
+    "endTime": "2026-11-19T22:45:41.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45e3",
+    "createdAt": "2026-11-20T10:16:33.810Z",
+    "updatedAt": "2026-11-20T10:16:33.810Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c337",
+    "label": "Mark Speakman resigns and says Liberals face ‘existential threat’ as NSW exodus continues",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf4601"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T22:17:09.000Z",
+    "endTime": "2026-11-19T22:17:09.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf4601",
+    "createdAt": "2026-11-20T10:16:33.813Z",
+    "updatedAt": "2026-11-20T10:16:33.813Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c338",
+    "label": "William and Catherine's India tour was 'particularly special', aide says",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45cb"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T22:02:06.000Z",
+    "endTime": "2026-11-19T22:02:06.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45cb",
+    "createdAt": "2026-11-20T10:16:33.815Z",
+    "updatedAt": "2026-11-20T10:16:33.815Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c339",
+    "label": "Why the U.S. air traffic control system still relies on an 'antique' network",
+    "topTerms": [],
+    "articleIds": [
+      "6b001e01a09a3c50c7cf4c51"
+    ],
+    "sources": [
+      "NPR"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T21:59:57.000Z",
+    "endTime": "2026-11-19T21:59:57.000Z",
+    "representativeArticleId": "6b001e01a09a3c50c7cf4c51",
+    "createdAt": "2026-11-20T10:16:33.818Z",
+    "updatedAt": "2026-11-20T10:16:33.818Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c33a",
+    "label": "Appeals court rejects Democrat LaMonica McIver’s bid to toss charges over ICE protest",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf461b"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T21:57:39.000Z",
+    "endTime": "2026-11-19T21:57:39.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf461b",
+    "createdAt": "2026-11-20T10:16:33.822Z",
+    "updatedAt": "2026-11-20T10:16:33.822Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c33b",
+    "label": "Protesters rally against Anthropic in New York and San Francisco after $2tn stock market debut",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf461c"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T21:52:19.000Z",
+    "endTime": "2026-11-19T21:52:19.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf461c",
+    "createdAt": "2026-11-20T10:16:33.825Z",
+    "updatedAt": "2026-11-20T10:16:33.825Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c33c",
+    "label": "Ukraine / Putin / Berlin",
+    "topTerms": [
+      "ukraine",
+      "putin",
+      "berlin"
+    ],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45ca",
+      "6aff8f2ea09a3c50c7cf4606",
+      "6aff8f2ea09a3c50c7cf4607"
+    ],
+    "sources": [
+      "BBC",
+      "Guardian"
+    ],
+    "articleCount": 3,
+    "startTime": "2026-11-19T17:23:36.000Z",
+    "endTime": "2026-11-19T21:21:43.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45ca",
+    "createdAt": "2026-11-20T10:16:33.828Z",
+    "updatedAt": "2026-11-20T10:16:33.828Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c33d",
+    "label": "Guardian Australia takes home two Walkley awards for excellence in journalism",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf4602"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T21:04:01.000Z",
+    "endTime": "2026-11-19T21:04:01.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf4602",
+    "createdAt": "2026-11-20T10:16:33.832Z",
+    "updatedAt": "2026-11-20T10:16:33.832Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c33e",
+    "label": "Shevchenko accuses Mudryk camp of 'baseless slander'",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45e5"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T20:44:11.000Z",
+    "endTime": "2026-11-19T20:44:11.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45e5",
+    "createdAt": "2026-11-20T10:16:33.833Z",
+    "updatedAt": "2026-11-20T10:16:33.833Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c33f",
+    "label": "Grand Theft Auto fans skip work and pull all-nighters to play new instalment",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf4614"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T20:07:23.000Z",
+    "endTime": "2026-11-19T20:07:23.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf4614",
+    "createdAt": "2026-11-20T10:16:33.835Z",
+    "updatedAt": "2026-11-20T10:16:33.835Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c340",
+    "label": "Genocide / Rohingya / Myanmar",
+    "topTerms": [
+      "genocide",
+      "rohingya",
+      "myanmar"
+    ],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45c7",
+      "6aff8f2ea09a3c50c7cf4609",
+      "6aff8f2ea09a3c50c7cf460f",
+      "6aff8f2ea09a3c50c7cf45ea",
+      "6aff8f2ea09a3c50c7cf45f2",
+      "6aff8f2ea09a3c50c7cf460e"
+    ],
+    "sources": [
+      "BBC",
+      "Guardian",
+      "NPR"
+    ],
+    "articleCount": 6,
+    "startTime": "2026-11-18T09:58:28.000Z",
+    "endTime": "2026-11-19T20:02:02.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45c7",
+    "createdAt": "2026-11-20T10:16:33.838Z",
+    "updatedAt": "2026-11-20T10:16:33.838Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c341",
+    "label": "Judges have put Trump's arch and golf course on hold, but only for a matter of days",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45e6"
+    ],
+    "sources": [
+      "NPR"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T19:46:27.000Z",
+    "endTime": "2026-11-19T19:46:27.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45e6",
+    "createdAt": "2026-11-20T10:16:33.842Z",
+    "updatedAt": "2026-11-20T10:16:33.842Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c342",
+    "label": "‘Welsh can tell any story’: Cymraeg dub of Star Wars premieres in Cardiff",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf4615"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T19:33:00.000Z",
+    "endTime": "2026-11-19T19:33:00.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf4615",
+    "createdAt": "2026-11-20T10:16:33.845Z",
+    "updatedAt": "2026-11-20T10:16:33.845Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c343",
+    "label": "Prison authorities consider whether Russell Brand harassed victims with YouTube message",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf4616"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T19:30:14.000Z",
+    "endTime": "2026-11-19T19:30:14.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf4616",
+    "createdAt": "2026-11-20T10:16:33.847Z",
+    "updatedAt": "2026-11-20T10:16:33.847Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c344",
+    "label": "Bradford / Councillor / Ali",
+    "topTerms": [
+      "bradford",
+      "councillor",
+      "ali"
+    ],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf4617",
+      "6aff8f2fa09a3c50c7cf461d"
+    ],
+    "sources": [
+      "BBC",
+      "Guardian"
+    ],
+    "articleCount": 2,
+    "startTime": "2026-11-19T17:49:24.000Z",
+    "endTime": "2026-11-19T19:18:56.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf4617",
+    "createdAt": "2026-11-20T10:16:33.850Z",
+    "updatedAt": "2026-11-20T10:16:33.850Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c345",
+    "label": "England fined for fans' anti-Catholic chants in Spain",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45d6"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T19:11:03.000Z",
+    "endTime": "2026-11-19T19:11:03.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45d6",
+    "createdAt": "2026-11-20T10:16:33.852Z",
+    "updatedAt": "2026-11-20T10:16:33.852Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c346",
+    "label": "UK and EU plan first talks on sending refused asylum seekers to third countries",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf4605"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T19:02:45.000Z",
+    "endTime": "2026-11-19T19:02:45.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf4605",
+    "createdAt": "2026-11-20T10:16:33.855Z",
+    "updatedAt": "2026-11-20T10:16:33.855Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c347",
+    "label": "Sutton's predictions v world champion boxer Lauren Price",
+    "topTerms": [],
+    "articleIds": [
+      "6affe58ca09a3c50c7cf4637"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T18:52:00.000Z",
+    "endTime": "2026-11-19T18:52:00.000Z",
+    "representativeArticleId": "6affe58ca09a3c50c7cf4637",
+    "createdAt": "2026-11-20T10:16:33.857Z",
+    "updatedAt": "2026-11-20T10:16:33.857Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c348",
+    "label": "Pochettino / United / Training",
+    "topTerms": [
+      "pochettino",
+      "united",
+      "training"
+    ],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45e1",
+      "6aff8f2ea09a3c50c7cf45e0"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 2,
+    "startTime": "2026-11-19T15:05:21.000Z",
+    "endTime": "2026-11-19T18:45:56.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45e1",
+    "createdAt": "2026-11-20T10:16:33.861Z",
+    "updatedAt": "2026-11-20T10:16:33.861Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c349",
+    "label": "Weekly quiz: Which star played cricket with Catherine in India?",
+    "topTerms": [],
+    "articleIds": [
+      "6aff9e48a09a3c50c7cf4626"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T18:43:15.000Z",
+    "endTime": "2026-11-19T18:43:15.000Z",
+    "representativeArticleId": "6aff9e48a09a3c50c7cf4626",
+    "createdAt": "2026-11-20T10:16:33.863Z",
+    "updatedAt": "2026-11-20T10:16:33.863Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c34a",
+    "label": "The 'Magic Six': How to strengthen your marriage in midlife",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45e7"
+    ],
+    "sources": [
+      "NPR"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T18:28:23.000Z",
+    "endTime": "2026-11-19T18:28:23.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45e7",
+    "createdAt": "2026-11-20T10:16:33.865Z",
+    "updatedAt": "2026-11-20T10:16:33.865Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c34b",
+    "label": "Faults not fixed in 90% of homes in government insulation scheme",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45d8"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T17:59:16.000Z",
+    "endTime": "2026-11-19T17:59:16.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45d8",
+    "createdAt": "2026-11-20T10:16:33.867Z",
+    "updatedAt": "2026-11-20T10:16:33.867Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c34c",
+    "label": "Anthony Zurcher: Trilateral summit high on spectacle, short on substance",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45d3"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T17:55:15.000Z",
+    "endTime": "2026-11-19T17:55:15.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45d3",
+    "createdAt": "2026-11-20T10:16:33.868Z",
+    "updatedAt": "2026-11-20T10:16:33.868Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c34d",
+    "label": "Watch: What did Trump, Xi and Putin get out of their historic meeting?",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45c9"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T17:23:29.000Z",
+    "endTime": "2026-11-19T17:23:29.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45c9",
+    "createdAt": "2026-11-20T10:16:33.872Z",
+    "updatedAt": "2026-11-20T10:16:33.872Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c34e",
+    "label": "China, Russia and US agree peace declaration with no mention of Ukraine and Iran wars",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45fa"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T17:13:23.000Z",
+    "endTime": "2026-11-19T17:13:23.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45fa",
+    "createdAt": "2026-11-20T10:16:33.873Z",
+    "updatedAt": "2026-11-20T10:16:33.873Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c34f",
+    "label": "Trump accused of falling asleep during Xi Jinping speech at Apec summit in China",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45fb"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T17:12:11.000Z",
+    "endTime": "2026-11-19T17:12:11.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45fb",
+    "createdAt": "2026-11-20T10:16:33.876Z",
+    "updatedAt": "2026-11-20T10:16:33.876Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c350",
+    "label": "'Bigger than Barack Obama's election': Scholars reflect on Mississippi Senate race",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45e8"
+    ],
+    "sources": [
+      "NPR"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T17:03:11.000Z",
+    "endTime": "2026-11-19T17:03:11.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45e8",
+    "createdAt": "2026-11-20T10:16:33.878Z",
+    "updatedAt": "2026-11-20T10:16:33.878Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c351",
+    "label": "Why fibbing about stolen snacks is an important part of childhood",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45d1"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T16:36:33.000Z",
+    "endTime": "2026-11-19T16:36:33.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45d1",
+    "createdAt": "2026-11-20T10:16:33.881Z",
+    "updatedAt": "2026-11-20T10:16:33.881Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c352",
+    "label": "Dutch watchdog tells people not to buy AI smart glasses",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45ce"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T16:33:17.000Z",
+    "endTime": "2026-11-19T16:33:17.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45ce",
+    "createdAt": "2026-11-20T10:16:33.883Z",
+    "updatedAt": "2026-11-20T10:16:33.883Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c353",
+    "label": "The midterms were the largest win for either party in 50 years",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45e9"
+    ],
+    "sources": [
+      "NPR"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T15:55:05.000Z",
+    "endTime": "2026-11-19T15:55:05.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45e9",
+    "createdAt": "2026-11-20T10:16:33.885Z",
+    "updatedAt": "2026-11-20T10:16:33.885Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c354",
+    "label": "New page in history? Xi, Trump and Putin summit was more of a footnote",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45fc"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T15:35:01.000Z",
+    "endTime": "2026-11-19T15:35:01.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45fc",
+    "createdAt": "2026-11-20T10:16:33.886Z",
+    "updatedAt": "2026-11-20T10:16:33.886Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c355",
+    "label": "Discrimination claims by McDonald's workers can go ahead, court says",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45db"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T15:09:36.000Z",
+    "endTime": "2026-11-19T15:09:36.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45db",
+    "createdAt": "2026-11-20T10:16:33.887Z",
+    "updatedAt": "2026-11-20T10:16:33.887Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c356",
+    "label": "Cummins' Australia captaincy at a crossroads - Agnew",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45e4"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T14:57:42.000Z",
+    "endTime": "2026-11-19T14:57:42.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45e4",
+    "createdAt": "2026-11-20T10:16:33.888Z",
+    "updatedAt": "2026-11-20T10:16:33.888Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c357",
+    "label": "Cleverly to run as Tory London mayor candidate",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45d9"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T14:36:17.000Z",
+    "endTime": "2026-11-19T14:36:17.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45d9",
+    "createdAt": "2026-11-20T10:16:33.889Z",
+    "updatedAt": "2026-11-20T10:16:33.889Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c358",
+    "label": "Australian music industry rejects ‘divide and conquer’ proposal to give musicians exemption from AI scraping",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf4603"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T14:00:52.000Z",
+    "endTime": "2026-11-19T14:00:52.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf4603",
+    "createdAt": "2026-11-20T10:16:33.891Z",
+    "updatedAt": "2026-11-20T10:16:33.891Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c359",
+    "label": "Fiona Harvey, who allegedly inspired Baby Reindeer, to appear in court on harassment charge",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45da"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T13:39:56.000Z",
+    "endTime": "2026-11-19T13:39:56.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45da",
+    "createdAt": "2026-11-20T10:16:33.894Z",
+    "updatedAt": "2026-11-20T10:16:33.894Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c35a",
+    "label": "Bob Mortimer returns to Middlesbrough and reflects on childhood",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45d5"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T13:00:07.000Z",
+    "endTime": "2026-11-19T13:00:07.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45d5",
+    "createdAt": "2026-11-20T10:16:33.896Z",
+    "updatedAt": "2026-11-20T10:16:33.896Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c35b",
+    "label": "Covid inquiry report: key findings on testing, tracing and 'the pingdemic'",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45dc"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T12:47:27.000Z",
+    "endTime": "2026-11-19T12:47:27.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45dc",
+    "createdAt": "2026-11-20T10:16:33.898Z",
+    "updatedAt": "2026-11-20T10:16:33.898Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c35c",
+    "label": "Israeli tanks cross ‘yellow line’ boundary into Hamas-controlled central Gaza",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf460a"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T12:40:46.000Z",
+    "endTime": "2026-11-19T12:40:46.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf460a",
+    "createdAt": "2026-11-20T10:16:33.899Z",
+    "updatedAt": "2026-11-20T10:16:33.899Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c35d",
+    "label": "Eight injured after driver in Israel repeatedly rams car into Palestinians",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf460b"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T12:36:37.000Z",
+    "endTime": "2026-11-19T12:36:37.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf460b",
+    "createdAt": "2026-11-20T10:16:33.901Z",
+    "updatedAt": "2026-11-20T10:16:33.901Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c35e",
+    "label": "UK joins in GTA 6 frenzy as game becomes available worldwide",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45cd"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T12:26:39.000Z",
+    "endTime": "2026-11-19T12:26:39.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45cd",
+    "createdAt": "2026-11-20T10:16:33.903Z",
+    "updatedAt": "2026-11-20T10:16:33.903Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c35f",
+    "label": "World Toilet Day is a funny idea with a serious goal: A world awash in toilets",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45eb"
+    ],
+    "sources": [
+      "NPR"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T12:26:31.000Z",
+    "endTime": "2026-11-19T12:26:31.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45eb",
+    "createdAt": "2026-11-20T10:16:33.904Z",
+    "updatedAt": "2026-11-20T10:16:33.904Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c360",
+    "label": "Anthropic raises more than $100B in IPO. And, Dems nominate Jeffries for House speaker",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45ec"
+    ],
+    "sources": [
+      "NPR"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T12:26:01.000Z",
+    "endTime": "2026-11-19T12:26:01.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45ec",
+    "createdAt": "2026-11-20T10:16:33.905Z",
+    "updatedAt": "2026-11-20T10:16:33.905Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c361",
+    "label": "Florence Pugh hits out at weight loss and cosmetic surgery speculation",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45d0"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T12:17:32.000Z",
+    "endTime": "2026-11-19T12:17:32.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45d0",
+    "createdAt": "2026-11-20T10:16:33.907Z",
+    "updatedAt": "2026-11-20T10:16:33.907Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c362",
+    "label": "Ella Langley sweeps Country Music Awards as Taylor Swift performs",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45d7"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T12:01:35.000Z",
+    "endTime": "2026-11-19T12:01:35.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45d7",
+    "createdAt": "2026-11-20T10:16:33.910Z",
+    "updatedAt": "2026-11-20T10:16:33.910Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c363",
+    "label": "The Brexit debate is back – and there are nerves about what happens next",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45d4"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T11:48:01.000Z",
+    "endTime": "2026-11-19T11:48:01.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45d4",
+    "createdAt": "2026-11-20T10:16:33.913Z",
+    "updatedAt": "2026-11-20T10:16:33.913Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c364",
+    "label": "Incoming House majority leader Katherine Clark stresses Democratic unity",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45ed"
+    ],
+    "sources": [
+      "NPR"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T11:20:42.000Z",
+    "endTime": "2026-11-19T11:20:42.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45ed",
+    "createdAt": "2026-11-20T10:16:33.916Z",
+    "updatedAt": "2026-11-20T10:16:33.916Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c365",
+    "label": "Top House Democrat questions what Trump accomplished in Xi-Putin summit",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45ee"
+    ],
+    "sources": [
+      "NPR"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T11:20:37.000Z",
+    "endTime": "2026-11-19T11:20:37.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45ee",
+    "createdAt": "2026-11-20T10:16:33.918Z",
+    "updatedAt": "2026-11-20T10:16:33.918Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c366",
+    "label": "Race to replant five South African baobabs after export blocked",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45f0"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T11:03:24.000Z",
+    "endTime": "2026-11-19T11:03:24.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45f0",
+    "createdAt": "2026-11-20T10:16:33.919Z",
+    "updatedAt": "2026-11-20T10:16:33.919Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c367",
+    "label": "Poppy Jay explores the appeal of being a tradwife",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45df"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T10:10:20.000Z",
+    "endTime": "2026-11-19T10:10:20.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45df",
+    "createdAt": "2026-11-20T10:16:33.920Z",
+    "updatedAt": "2026-11-20T10:16:33.920Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c368",
+    "label": "Muslims will outnumber Christians worldwide by 2035, report says",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45ef"
+    ],
+    "sources": [
+      "NPR"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T10:00:00.000Z",
+    "endTime": "2026-11-19T10:00:00.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45ef",
+    "createdAt": "2026-11-20T10:16:33.922Z",
+    "updatedAt": "2026-11-20T10:16:33.922Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c369",
+    "label": "Violent protests and killings in Bangladesh ahead of exiled Sheikh Hasina’s planned return",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf4610"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T06:58:33.000Z",
+    "endTime": "2026-11-19T06:58:33.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf4610",
+    "createdAt": "2026-11-20T10:16:33.924Z",
+    "updatedAt": "2026-11-20T10:16:33.924Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c36a",
+    "label": "Datacentres to create 70% more carbon emissions by 2030, IEA report warns",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45fd"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T05:00:18.000Z",
+    "endTime": "2026-11-19T05:00:18.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45fd",
+    "createdAt": "2026-11-20T10:16:33.926Z",
+    "updatedAt": "2026-11-20T10:16:33.926Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c36b",
+    "label": "One in four women globally unable to refuse sex within marriage, says UN",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45f1"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-19T04:00:16.000Z",
+    "endTime": "2026-11-19T04:00:16.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45f1",
+    "createdAt": "2026-11-20T10:16:33.929Z",
+    "updatedAt": "2026-11-20T10:16:33.929Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c36c",
+    "label": "Florida pastor found guilty over 2021 assassination of Haitian president",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45f5"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-18T22:31:41.000Z",
+    "endTime": "2026-11-18T22:31:41.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45f5",
+    "createdAt": "2026-11-20T10:16:33.930Z",
+    "updatedAt": "2026-11-20T10:16:33.930Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c36d",
+    "label": "Hegseth uses Venezuela visit to boast of Maduro’s capture by US military",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45f6"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-18T20:24:19.000Z",
+    "endTime": "2026-11-18T20:24:19.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45f6",
+    "createdAt": "2026-11-20T10:16:33.932Z",
+    "updatedAt": "2026-11-20T10:16:33.932Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c36e",
+    "label": "Apec summit as it happened: Xi welcomes Trump on China visit as Putin claims Europe in ‘humiliating decline’",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45fe"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-18T17:48:24.000Z",
+    "endTime": "2026-11-18T17:48:24.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45fe",
+    "createdAt": "2026-11-20T10:16:33.933Z",
+    "updatedAt": "2026-11-20T10:16:33.933Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c36f",
+    "label": "Israel delays building contracts for West Bank settlement after UK sanctions",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf460c"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-18T14:05:38.000Z",
+    "endTime": "2026-11-18T14:05:38.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf460c",
+    "createdAt": "2026-11-20T10:16:33.936Z",
+    "updatedAt": "2026-11-20T10:16:33.936Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c370",
+    "label": "European Commission accused of sugarcoating figures to release funds to Egypt",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45f3"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-18T05:00:32.000Z",
+    "endTime": "2026-11-18T05:00:32.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45f3",
+    "createdAt": "2026-11-20T10:16:33.938Z",
+    "updatedAt": "2026-11-20T10:16:33.938Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c371",
+    "label": "Pakistani man sentenced to 27 years in US prison over Trump murder plot",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf460d"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-18T00:21:33.000Z",
+    "endTime": "2026-11-18T00:21:33.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf460d",
+    "createdAt": "2026-11-20T10:16:33.939Z",
+    "updatedAt": "2026-11-20T10:16:33.939Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c372",
+    "label": "Caribbean nations fear economic impact of shuttering citizenship program after EU threats",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45f7"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-17T21:49:29.000Z",
+    "endTime": "2026-11-17T21:49:29.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45f7",
+    "createdAt": "2026-11-20T10:16:33.941Z",
+    "updatedAt": "2026-11-20T10:16:33.941Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c373",
+    "label": "Isolated Brazilian tribe emerges amid alarm over threats to group’s way of life",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45f8"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-17T21:40:56.000Z",
+    "endTime": "2026-11-17T21:40:56.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45f8",
+    "createdAt": "2026-11-20T10:16:33.944Z",
+    "updatedAt": "2026-11-20T10:16:33.944Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c374",
+    "label": "Eight-year-old Haitian boy returns home after release from ICE custody",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45f9"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-17T20:59:56.000Z",
+    "endTime": "2026-11-17T20:59:56.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45f9",
+    "createdAt": "2026-11-20T10:16:33.946Z",
+    "updatedAt": "2026-11-20T10:16:33.946Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c375",
+    "label": "India has been named a ‘destination of the year’ for 2027 – here are insiders’ tips on travelling beyond the tropes",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf4611"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-17T07:30:06.000Z",
+    "endTime": "2026-11-17T07:30:06.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf4611",
+    "createdAt": "2026-11-20T10:16:33.948Z",
+    "updatedAt": "2026-11-20T10:16:33.948Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c376",
+    "label": "Five EU states announce plans for immigration ‘return hubs’ in Rwanda",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45f4"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-17T01:10:59.000Z",
+    "endTime": "2026-11-17T01:10:59.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45f4",
+    "createdAt": "2026-11-20T10:16:33.950Z",
+    "updatedAt": "2026-11-20T10:16:33.950Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c377",
+    "label": "‘I saw a picture of a two-year-old girl buried in mud. I knew we had to do something’ – This is climate breakdown",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf4612"
+    ],
+    "sources": [
+      "Guardian"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-11-16T12:00:59.000Z",
+    "endTime": "2026-11-16T12:00:59.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf4612",
+    "createdAt": "2026-11-20T10:16:33.953Z",
+    "updatedAt": "2026-11-20T10:16:33.953Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c378",
+    "label": "Thrilling dark comedy starring Blake Lively and Anna Kendrick",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45de"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2026-03-31T05:00:00.000Z",
+    "endTime": "2026-03-31T05:00:00.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45de",
+    "createdAt": "2026-11-20T10:16:33.955Z",
+    "updatedAt": "2026-11-20T10:16:33.955Z"
+  },
+  {
+    "_id": "6b001e011bdaff55bdb7c379",
+    "label": "Download now",
+    "topTerms": [],
+    "articleIds": [
+      "6aff8f2ea09a3c50c7cf45dd"
+    ],
+    "sources": [
+      "BBC"
+    ],
+    "articleCount": 1,
+    "startTime": "2025-04-30T14:04:28.000Z",
+    "endTime": "2025-04-30T14:04:28.000Z",
+    "representativeArticleId": "6aff8f2ea09a3c50c7cf45dd",
+    "createdAt": "2026-11-20T10:16:33.958Z",
+    "updatedAt": "2026-11-20T10:16:33.958Z"
+  }
+]

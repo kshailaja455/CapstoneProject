@@ -1,183 +1,204 @@
-# News Pulse
+# MediaLens (formerly News Pulse)
 
-News Pulse is a full-stack news intelligence application that ingests live RSS articles, extracts article text, clusters related stories with TF-IDF cosine similarity, and presents the results in a polished React dashboard.
+MediaLens is an intelligent, full-stack news analytics and narrative intelligence web application. It continuously monitors live RSS feeds from major global news publishers (BBC, NPR, The Guardian), extracts clean article bodies, deduplicates and hashes content, clusters related stories with explainable TF-IDF cosine similarity, and discovers emergent story narratives in real-time.
 
-The goal is to help a user quickly answer:
+---
 
-- Which stories are active right now?
-- Which outlets are covering the same topic?
-- Why did the model group these articles together?
-- How does the clustering change when the TF-IDF similarity threshold changes?
+## Key Features & Visual Modes
 
-## Product Highlights
+The dashboard provides four distinct visual exploration modes accessible via the top navigation controls:
 
-- **Cluster board default view**: lead story plus consistent cluster cards with article count, source coverage, match strength, TF-IDF terms, summary, and latest activity time.
-- **Signal map view**: optional bubble-style visualization for quick visual exploration of cluster size, source mix, and match strength.
-- **Timeline view**: Gantt-style time axis where each topic appears as a duration bar from earliest to latest article, while single-article topics appear as point markers.
-- **Cluster detail page**: equal-height article cards, source coverage, model evidence, match strength, and TF-IDF terms.
-- **Similarity playground**: adjust the TF-IDF threshold and recompute preview clusters without overwriting saved clusters.
-- **Pagination**: dense result sets, especially `All topics`, are paginated at 12 items per page.
-- **Ingestion flow**: refresh trigger with visible phase states: Fetch, Extract, Score, Cluster.
+1. **Cluster Board (Default View)**: Executive card layout highlighting lead multi-source breaking topics alongside equal-height cards displaying coverage breadth, match strength, TF-IDF terms, and summaries.
+2. **Signal Map**: Dynamic bubble-style visual map scaling proportionally to story activity, source diversity, and topic clustering density.
+3. **Timeline**: Gantt-style chronological axis plotting active reporting duration bars and point markers across all covered events.
+4. **Narrative Intelligence Console**: Shadow-mode narrative tracking system that detects multi-event storylines, distinguishes continuing developments from broader thematic context, tracks parent/child narrative hierarchies, and offers an interactive human review workflow.
 
-## Architecture
+---
+
+## System Architecture
 
 ```text
-RSS feeds
-  -> Python scraper and article extractor
-  -> MongoDB
-  -> Express API
-  -> Vite React dashboard
+RSS Feeds (BBC, NPR, Guardian)
+        │
+        ▼
+  Python Scraper & Extractor (trafilatura, feedparser)
+        │
+        ▼
+  Deduplication & Content Hashing (SHA-256)
+        │
+        ▼
+  MongoDB (articles, clusters, ingestjobs)
+        │
+        ▼
+  Express REST API (Node.js / TypeScript, port 5050)
+        ├─► Ingestion & Cluster Endpoints
+        └─► Narrative Intelligence Engine (shadow mode)
+              │
+              ▼
+  Vite React Dashboard (port 5173)
+        ├─► Cluster Board, Signal Map & Timeline
+        └─► Narrative Intelligence Console & Reviewer UI
 ```
 
-### Folders
+---
 
-- `scraper/`: RSS fetch, article extraction, deduplication, TF-IDF clustering, MongoDB persistence.
-- `backend/`: Express API for clusters, timeline data, threshold playground, and ingestion jobs.
-- `frontend/`: React dashboard, filters, visualizations, detail pages, and ingestion UI.
+## Narrative Intelligence (Shadow Mode)
+
+Narrative Intelligence operates as an incremental analysis layer running against stored article and cluster data. All narrative state is isolated in separate MongoDB collections (`narratives`, `narrative_events`, `narrative_relationships`, `narrative_runs`, `narrative_locks`), guaranteeing that raw event clusters are never modified or corrupted.
+
+### Narrative Hierarchy & Invariants
+- **Child Storylines**: Grouped using strict **complete-link clustering** requiring accepted `SAME_EVENT` or `CONTINUING_STORYLINE` classifications across all pairs, preventing transitive graph bridges from merging unrelated stories.
+- **Parent Context Narratives**: Grouped under broader issue keys (e.g., `ISSUE:asylum`, `ISSUE:summit`) when multiple distinct child storylines share common context without conflating them into a single continuous event.
+- **Review Workflow**: Every discovered relationship carries review statuses (`NEEDS_REVIEW`, `CONFIRMED`, `REJECTED`). Reviewer actions taken in the dashboard are durable and persist across scraper rebuilds and backend restarts.
+
+### Configuration (`backend/.env`)
+
+```dotenv
+NARRATIVE_ANALYSIS_ENABLED=true
+NARRATIVE_SHADOW_MODE=true
+NARRATIVE_POLL_INTERVAL_MINUTES=15
+NARRATIVE_MAX_EVENT_CLUSTERS=500
+NARRATIVE_INACTIVE_DAYS=45
+NARRATIVE_LEASE_MINUTES=30
+```
+
+- Disabling narrative intelligence (`NARRATIVE_ANALYSIS_ENABLED=false`) stops scheduled and post-ingest narrative processing while leaving RSS ingestion, event clustering, and the rest of the dashboard completely unaffected.
+- Read comprehensive architectural and audit reports in [`docs/narrative_intelligence/`](docs/narrative_intelligence/):
+  - [FINAL_NARRATIVE_ARCHITECTURE.md](docs/narrative_intelligence/FINAL_NARRATIVE_ARCHITECTURE.md)
+  - [FINAL_RETRIEVAL_AUDIT.md](docs/narrative_intelligence/FINAL_RETRIEVAL_AUDIT.md)
+  - [FINAL_CLASSIFICATION_EVALUATION.md](docs/narrative_intelligence/FINAL_CLASSIFICATION_EVALUATION.md)
+  - [FINAL_HIERARCHY_VALIDATION.md](docs/narrative_intelligence/FINAL_HIERARCHY_VALIDATION.md)
+  - [FINAL_EVIDENCE_RECONCILIATION.md](docs/narrative_intelligence/FINAL_EVIDENCE_RECONCILIATION.md)
+  - [FINAL_READINESS_DECISION.md](docs/narrative_intelligence/FINAL_READINESS_DECISION.md)
+
+---
 
 ## News Sources
 
-The scraper currently reads:
+The system currently ingests live RSS feeds from:
+- **BBC News**: `https://feeds.bbci.co.uk/news/rss.xml`
+- **NPR**: `https://feeds.npr.org/1001/rss.xml`
+- **The Guardian World**: `https://www.theguardian.com/world/rss`
 
-- BBC News: `https://feeds.bbci.co.uk/news/rss.xml`
-- NPR: `https://feeds.npr.org/1001/rss.xml`
-- The Guardian World: `https://www.theguardian.com/world/rss`
+---
 
-## Clustering Approach
+## Quickstart & Local Setup
 
-News Pulse uses a deterministic TF-IDF baseline:
+### Prerequisites
+- Node.js (v18+)
+- Python (v3.10+)
+- MongoDB (running locally on port 27017 or accessible via connection string)
 
-1. Build article text from title, RSS summary, and extracted article body.
-2. Vectorize articles with TF-IDF.
-3. Use English stop-word removal and 1-2 word n-grams.
-4. Compute pairwise cosine similarity.
-5. Connect articles whose similarity is at least the threshold.
-6. Treat connected components as clusters.
-
-Default threshold:
-
-```text
-SIMILARITY_THRESHOLD=0.26
+### 1. Start MongoDB
+Using local MongoDB binary:
+```powershell
+New-Item -ItemType Directory -Force .local-mongo | Out-Null
+mongod --dbpath .local-mongo --bind_ip 127.0.0.1 --port 27017
 ```
-
-The UI also exposes a non-destructive threshold playground through the backend. Lower thresholds merge more articles into larger clusters; higher thresholds split stories into stricter groups.
-
-### Why TF-IDF?
-
-TF-IDF is explainable, fast, deterministic, and simple to defend in an assessment. It also lets the UI show the terms that helped group articles. Its limitation is semantic recall: articles can describe the same event with different vocabulary. A production improvement would add sentence embeddings plus density-based clustering such as HDBSCAN.
-
-## Local Setup
-
-### 1. MongoDB
-
-Use MongoDB Atlas or local MongoDB.
-
-Local Docker option:
-
+Or using Docker Compose:
 ```bash
 docker compose up -d mongo
 ```
 
-Local Homebrew option:
-
-```bash
-brew tap mongodb/brew
-brew install mongodb-community
-brew services start mongodb-community
-```
-
-### 2. Environment Files
-
-Create `.env` files from examples if needed:
-
+### 2. Configure Environment Files
+Copy the example environment templates:
 ```bash
 cp scraper/.env.example scraper/.env
 cp backend/.env.example backend/.env
 cp frontend/.env.example frontend/.env
 ```
 
-Important variables:
+### 3. Install Dependencies
 
-- `MONGO_URI`: MongoDB connection string.
-- `MONGO_DB`: database name, usually `news-pulse`.
-- `SIMILARITY_THRESHOLD`: persisted scraper clustering threshold, default `0.26`.
-- `MAX_ARTICLES_FOR_CLUSTERING`: number of recent articles used for clustering.
-- `PYTHON_BIN`: Python executable used by the backend ingestion trigger.
-- `SCRAPER_ENTRYPOINT`: path to `scraper/pipeline.py`.
-- `VITE_API_BASE_URL`: frontend API base URL, usually `http://localhost:5050`.
-
-### 3. Python Scraper
-
+**Python Scraper:**
 ```bash
 cd scraper
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python pipeline.py
+python -m pip install -r requirements.txt
 ```
 
-### 4. Backend API
-
-The backend is configured to run on port `5050` locally.
-
+**Backend API:**
 ```bash
 cd backend
-bun install
-bun run dev
+npm install
 ```
 
-### 5. Frontend
-
+**Frontend Dashboard:**
 ```bash
 cd frontend
-bun install
-bun run dev
+npm install
 ```
 
-Open:
+### 4. Running the Application
 
+Open separate terminal windows for each service:
+
+**Terminal 1 — Backend API (port 5050):**
+```bash
+cd backend
+npm run dev
+```
+
+**Terminal 2 — Frontend Dashboard (port 5173):**
+```bash
+cd frontend
+npm run dev
+```
+
+**Terminal 3 — Initial Ingestion (Optional):**
+You can trigger ingestion directly from the frontend by clicking **Refresh data**, or run the scraper manually from the repository root:
+```bash
+python scraper/pipeline.py
+```
+
+Open your browser to:
 ```text
 http://localhost:5173
 ```
 
-## API Endpoints
+---
 
-- `GET /clusters`: saved cluster summaries.
-- `GET /clusters/:id`: saved cluster detail with articles.
-- `GET /clusters/playground?threshold=0.26`: recompute preview clusters in memory for the selected threshold.
-- `GET /timeline`: saved clusters with timeline intensity.
-- `POST /ingest/trigger`: start the Python ingestion pipeline.
-- `GET /ingest/status/:jobId`: read ingestion job status.
+## API Endpoints Reference
 
-## Verification Commands
+### Core Event Clustering & Ingestion
+- `GET /clusters` — Summaries of saved event clusters.
+- `GET /clusters/:id` — Full details for an event cluster with member articles.
+- `GET /clusters/playground?threshold=0.26` — In-memory preview clusters computed for any chosen similarity threshold.
+- `GET /timeline` — Clusters formatted with temporal intensity metrics.
+- `POST /ingest/trigger` — Trigger a manual RSS scrape and clustering pipeline run.
+- `GET /ingest/status/:jobId` — Check status of an ongoing ingestion job.
+- `GET /ingest/summary` — Feed collection summary and live feed monitor statistics.
 
-Frontend:
+### Narrative Intelligence
+- `GET /narratives/status` — Operational status, active rule set, latest run metrics, and total record counts.
+- `GET /narratives/runs/latest` — Detailed execution diagnostics for the most recent narrative analysis run.
+- `POST /narratives/analyze` — Trigger an on-demand narrative analysis run under a distributed lock.
+- `GET /narratives` — List active/candidate narrative storylines (supports filtering by `status`, `level`, `category`, `source`, `reviewStatus`, `from`, `to`).
+- `GET /narratives/:id` — Retrieve detailed narrative records including event nodes, article excerpts, quality flags, and timeline.
+- `GET /narratives/:id/timeline` — Chronological timeline of events comprising a narrative.
+- `GET /narratives/:id/history` — Audit trail of narrative lifecycle actions (splits, merges, membership changes, rule-set updates).
+- `GET /narratives/relationships` — List pairwise relationship evaluations across events.
+- `PATCH /narratives/relationships/:id/review` — Submit a persistent human review decision (`CONFIRMED`, `REJECTED`, `NEEDS_REVIEW`).
 
+---
+
+## Testing & Verification
+
+**Frontend Build & Linter:**
 ```bash
 cd frontend
-bun run build
-bun run lint
+npm run build
+npm run lint
 ```
 
-Backend:
-
+**Backend Typecheck & Unit Tests:**
 ```bash
 cd backend
-bunx tsc --noEmit
+npx tsc --noEmit
+npm test
 ```
 
-Scraper smoke test:
-
+**Python Scraper Smoke Test:**
 ```bash
 cd scraper
-source .venv/bin/activate
 python pipeline.py
 ```
-
-## Current UX Notes
-
-- The default dashboard is intentionally the **Cluster board**, because it is the clearest executive/product view.
-- The **Signal map** is available as a secondary visual exploration mode.
-- The **Timeline** is designed to communicate activity windows, not just sorted dates.
-- The detail page focuses on explainability: model evidence, TF-IDF terms, source coverage, and equal-height article evidence cards.
-

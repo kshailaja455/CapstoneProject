@@ -76,6 +76,9 @@ coverage.xml
 # --- MongoDB ---
 # If using MongoDB locally, ignore local data directories
 data/db/
+.local-mongo/
+.local-mongo-session/
+.local-mongo-live/
 mongodb.log
 *.tfstate
 *.tfstate.backup

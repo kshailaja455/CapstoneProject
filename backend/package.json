@@ -13,7 +13,8 @@
   },
   "scripts": {
     "dev": "tsx watch server.ts",
-    "start": "node --import tsx server.ts"
+    "start": "node --import tsx server.ts",
+    "test": "tsx --test services/narrativeEngine.test.ts services/narrativeService.test.ts"
   },
   "peerDependencies": {
     "typescript": "^6.0.3"
@@ -23,6 +24,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "express-validator": "^7.3.2",
+    "fast-xml-parser": "^5.12.1",
     "mongoose": "^9.7.2",
     "morgan": "^1.11.0",
     "tsx": "^4.22.4",
