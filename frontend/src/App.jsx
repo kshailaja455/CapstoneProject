@@ -69,9 +69,14 @@ function formatDate(value) {
   }).format(new Date(value))
 }
 
-function formatAxisDate(value) {
+function formatAxisDate(value, rangeSpanMs) {
   if (!value) return ''
-  return new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric' }).format(new Date(value))
+  const d = new Date(value)
+  if (rangeSpanMs && rangeSpanMs < 36 * 60 * 60 * 1000) {
+    // Under 36 hours, show time and date
+    return new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true }).format(d)
+  }
+  return new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric' }).format(d)
 }
 
 function timeValue(value) {
@@ -113,8 +118,27 @@ function SegmentedControl({ label, options, value, onChange }) {
   )
 }
 
+// Generate a consistent color hue from string
+function sourceColor(source) {
+  if (!source) return '#58a6ff'
+  let hash = 0
+  for (let i = 0; i < source.length; i++) {
+    hash = source.charCodeAt(i) + ((hash << 5) - hash)
+  }
+  const hue = Math.abs(hash % 360)
+  return `hsl(${hue}, 70%, 55%)`
+}
+
 function SourceChip({ source }) {
-  return <span className={`source-chip ${(source || '').toLowerCase().replace(/\s+/g, '-')}`}>{source}</span>
+  const customBg = sourceColor(source)
+  return (
+    <span
+      className={`source-chip ${(source || '').toLowerCase().replace(/\s+/g, '-')}`}
+      style={{ borderColor: customBg, '--source-color': customBg }}
+    >
+      {source}
+    </span>
+  )
 }
 
 function SourceChips({ sources }) {
@@ -236,12 +260,18 @@ function SignalMap({ clusters, onOpen }) {
             onClick={() => onOpen(cluster)}
             style={{ '--signal-size': `${size}px`, '--signal-delay': `${(index % 10) * 38}ms` }}
             type="button"
+            title={`${cluster.label} (${cluster.articleCount} articles, ${cluster.sources.join(', ')})`}
           >
             <span className="signal-bubble">
               <span className="signal-count">{cluster.articleCount}</span>
               <span className="signal-confidence">{mlConfidence(cluster)}%</span>
               {cluster.sources.slice(0, 4).map((source, si) => (
-                <span className={`signal-source-dot dot-${si} ${source.toLowerCase().replace(/\s+/g, '-')}`} key={source} title={source} />
+                <span
+                  className={`signal-source-dot dot-${si} ${source.toLowerCase().replace(/\s+/g, '-')}`}
+                  key={source}
+                  style={{ backgroundColor: sourceColor(source) }}
+                  title={source}
+                />
               ))}
             </span>
             <span className="signal-node-title">{cluster.label}</span>
@@ -296,7 +326,7 @@ function Timeline({ clusters, onOpen }) {
           <div className="timeline-ruler">
             {ticks.map((tick) => (
               <span className="timeline-tick-label" key={tick} style={{ left: `${((tick - bounds.min) / range) * 100}%` }}>
-                {formatAxisDate(tick)}
+                {formatAxisDate(tick, range)}
               </span>
             ))}
           </div>
@@ -1093,14 +1123,21 @@ function ClusterDetailPage({ cluster, loading, onBack }) {
 }
 
 // ─── Main Dashboard (Cluster / Signal / Timeline views) ──────────────────────
-function Dashboard({ darkMode, onToggleDark, onRefresh, refreshing }) {
+function Dashboard({ darkMode, onToggleDark, onRefresh, refreshing, initialVisualMode = 'board' }) {
   const [clusters, setClusters] = useState([])
   const [publishers, setPublishers] = useState([])
   const [selectedSources, setSelectedSources] = useState([])
   const [viewMode, setViewMode] = useState('grouped')
-  const [visualMode, setVisualMode] = useState('board')
+  const [visualMode, setVisualMode] = useState(initialVisualMode)
   const [dateMode, setDateMode] = useState('all')
   const [threshold, setThreshold] = useState(DEFAULT_THRESHOLD)
+
+  // Sync visualMode when initialVisualMode changes from nav
+  useEffect(() => {
+    if (initialVisualMode) {
+      setVisualMode(initialVisualMode)
+    }
+  }, [initialVisualMode])
   const [searchQuery, setSearchQuery] = useState('')
   const [crossSourceOnly, setCrossSourceOnly] = useState(false)
   const [selectedId, setSelectedId] = useState(null)
@@ -1513,7 +1550,13 @@ export default function App() {
         <main className="content-area">
           {activeSection === 'live-feed' && <LiveFeed />}
           {(activeSection === 'cluster-board' || activeSection === 'signal-map' || activeSection === 'timeline') && (
-            <Dashboard darkMode={darkMode} onToggleDark={() => setDarkMode((d) => !d)} onRefresh={handleRefresh} refreshing={refreshing} />
+            <Dashboard
+              darkMode={darkMode}
+              onToggleDark={() => setDarkMode((d) => !d)}
+              onRefresh={handleRefresh}
+              refreshing={refreshing}
+              initialVisualMode={visualModeFromNav}
+            />
           )}
           {activeSection === 'narrative' && <NarrativeIntelligence />}
           {activeSection === 'publishers' && <PublisherManagement />}
