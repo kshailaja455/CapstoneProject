@@ -1,4 +1,4 @@
-# Rumour Flow Tracker (formerly News Pulse / MediaLens)
+# Rumour Flow Tracker
 
 An end-to-end, automated news intelligence and narrative detection platform. The system continuously polls multi-source RSS feeds, extracts full text articles, deduplicates and hashes stories, clusters related reports using explainable TF-IDF cosine similarity, tracks event evolution over time, and reconstructs multi-event narrative storylines with evidence-backed relationships.
 
