@@ -1,6 +1,5 @@
-# MediaLens (formerly News Pulse)
-
-MediaLens is an intelligent, full-stack news analytics and narrative intelligence web application. It continuously monitors live RSS feeds from major global news publishers (BBC, NPR, The Guardian), extracts clean article bodies, deduplicates and hashes content, clusters related stories with explainable TF-IDF cosine similarity, and discovers emergent story narratives in real-time.
+# RUMOUR FLOW TRACKER
+Rumor FLow Tracker is an intelligent, full-stack news analytics and narrative intelligence web application. It continuously monitors live RSS feeds from major global news publishers (BBC, NPR, The Guardian), extracts clean article bodies, deduplicates and hashes content, clusters related stories with explainable TF-IDF cosine similarity, and discovers emergent story narratives in real-time.
 
 ---
 
