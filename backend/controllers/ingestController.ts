@@ -5,12 +5,13 @@ import Article from "../models/Article";
 import Cluster from "../models/Cluster";
 import IngestJob from "../models/IngestJob";
 import Publisher from "../models/Publisher";
-import { triggerIngest, getSchedulerStatus, sseClients } from "../services/ingestService";
+import { triggerIngest, getSchedulerStatus, sseClients, retryPostIngestNarrative, IngestionAlreadyRunningError } from "../services/ingestService";
 import { notFound, serverError } from "../utils/api";
 
 export async function triggerIngestJob(req: Request, res: Response) {
   try {
     const job = await triggerIngest("manual");
+    if (!job) return res.status(409).json({ success: false, error: "Ingestion is already running." });
     return res.status(202).json({
       success: true,
       data: {
@@ -19,6 +20,25 @@ export async function triggerIngestJob(req: Request, res: Response) {
       },
     });
   } catch (error) {
+    if (error instanceof IngestionAlreadyRunningError) {
+      return res.status(409).json({ success: false, error: error.message, activeJobId: error.activeJobId });
+    }
+    return serverError(res, error);
+  }
+}
+
+export async function retryIngestNarrative(req: Request, res: Response) {
+  try {
+    if (!isValidObjectId(req.params.jobId)) return notFound(res, "Ingest job not found");
+    const result = await retryPostIngestNarrative(String(req.params.jobId));
+    return res.json({ success: true, data: result });
+  } catch (error: any) {
+    if (error instanceof IngestionAlreadyRunningError) {
+      return res.status(409).json({ success: false, error: error.message, activeJobId: error.activeJobId });
+    }
+    if (String(error?.message || "").includes("no retryable") || String(error?.message || "").includes("no longer active")) {
+      return res.status(409).json({ success: false, error: error.message });
+    }
     return serverError(res, error);
   }
 }
@@ -44,6 +64,10 @@ export async function getIngestStatus(req: Request, res: Response) {
         insertedCount: job.insertedCount || 0,
         clusterCount: job.clusterCount || 0,
         error: job.error || null,
+        clusterGenerationId: job.clusterGenerationId || null,
+        narrativeStatus: job.narrativeStatus || null,
+        narrativeRunId: job.narrativeRunId || null,
+        narrativeError: job.narrativeError || null,
       },
     });
   } catch (error) {

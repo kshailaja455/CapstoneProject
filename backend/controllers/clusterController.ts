@@ -3,6 +3,7 @@ import { isValidObjectId } from "mongoose";
 
 import Article from "../models/Article";
 import Cluster from "../models/Cluster";
+import { currentClusterFilter } from "../services/clusterGeneration";
 import { buildTfidfPreviewClusters } from "../services/tfidfPreview";
 import { notFound, serverError } from "../utils/api";
 
@@ -59,7 +60,7 @@ function intensity(articleCount: number) {
 
 export async function getClusters(req: Request, res: Response) {
   try {
-    const clusters = await Cluster.find(sourceFilter(req)).sort({ endTime: -1 }).lean();
+    const clusters = await Cluster.find({ ...(await currentClusterFilter()), ...sourceFilter(req) }).sort({ endTime: -1 }).lean();
     return res.json({
       success: true,
       data: clusters.map(toClusterSummary),
@@ -109,7 +110,7 @@ export async function getCluster(req: Request, res: Response) {
       return notFound(res, "Cluster not found");
     }
 
-    const articles = await Article.find({ clusterId: cluster._id })
+    const articles = await Article.find({ _id: { $in: cluster.articleIds || [] } })
       .sort({ publishedAt: 1 })
       .select("title source url summary body publishedAt fetchedAt")
       .lean();
@@ -137,7 +138,7 @@ export async function getCluster(req: Request, res: Response) {
 
 export async function getTimeline(req: Request, res: Response) {
   try {
-    const clusters = await Cluster.find(sourceFilter(req)).sort({ startTime: 1 }).lean();
+    const clusters = await Cluster.find({ ...(await currentClusterFilter()), ...sourceFilter(req) }).sort({ startTime: 1 }).lean();
     return res.json({
       success: true,
       data: clusters.map((cluster: any) => ({

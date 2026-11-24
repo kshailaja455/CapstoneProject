@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "tsx watch server.ts",
     "start": "node --import tsx server.ts",
-    "test": "tsx --test services/narrativeEngine.test.ts services/narrativeService.test.ts"
+    "test": "tsx --test services/narrativeEngine.test.ts services/narrativeService.test.ts services/ingestCoordination.test.ts services/narrativeRunSnapshot.test.ts"
   },
   "peerDependencies": {
     "typescript": "^6.0.3"

@@ -14,7 +14,7 @@ const IngestJobSchema = new Schema(
 
     triggeredBy: {
       type: String,
-      enum: ["manual", "scheduled"],
+      enum: ["manual", "scheduled", "websub"],
       default: "manual",
     },
 
@@ -38,6 +38,17 @@ const IngestJobSchema = new Schema(
     clusterCount: Number,
 
     error: String,
+    recoveryStatus: String,
+    recoveryError: String,
+    leaseOwner: String,
+    fencingToken: Number,
+    clusterGenerationId: String,
+    narrativeStatus: { type: String, enum: ["pending", "running", "completed", "failed", "superseded"], default: "pending" },
+    narrativeRunId: String,
+    narrativeAttempts: { type: Number, default: 0 },
+    narrativeError: String,
+    narrativeAttemptOwner: String,
+    narrativeAttemptExpiresAt: Date,
   },
   { timestamps: true }
 );

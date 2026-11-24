@@ -5,7 +5,9 @@ import Narrative from "../models/Narrative";
 import NarrativeEvent from "../models/NarrativeEvent";
 import NarrativeRelationship from "../models/NarrativeRelationship";
 import NarrativeRun from "../models/NarrativeRun";
+import NarrativeRunArtifact from "../models/NarrativeRunArtifact";
 import { narrativeConfig, runNarrativeAnalysis } from "../services/narrativeService";
+import { replayNarrativeRun } from "../services/narrativeReplay";
 import { notFound, serverError } from "../utils/api";
 
 function limitValue(value: unknown, fallback = 100) {
@@ -218,6 +220,28 @@ export async function triggerNarrativeAnalysis(_req: Request, res: Response) {
     if (!narrativeConfig().enabled) return res.status(409).json({ success: false, error: "Narrative analysis is disabled by configuration." });
     const result = await runNarrativeAnalysis("manual");
     return res.status(result.skipped ? 409 : 202).json({ success: true, data: result });
+  } catch (error) {
+    return serverError(res, error);
+  }
+}
+
+export async function replayNarrativeRunEndpoint(req: Request, res: Response) {
+  try {
+    const result = await replayNarrativeRun(String(req.params.runId));
+    return res.status(202).json({ success: true, data: result });
+  } catch (error: any) {
+    const message = error?.message || String(error);
+    if (message === "Original narrative run was not found") return notFound(res, message);
+    return res.status(409).json({ success: false, error: message });
+  }
+}
+
+export async function getNarrativeRunArtifacts(req: Request, res: Response) {
+  try {
+    const run: any = await NarrativeRun.findOne({ runId: String(req.params.runId), runMode: "REPLAY" }).lean();
+    if (!run) return notFound(res, "Replay run not found");
+    const artifacts = await NarrativeRunArtifact.find({ runId: run.runId }).sort({ artifactType: 1, ordinal: 1 }).lean();
+    return res.json({ success: true, data: { run, artifacts, outputKind: "REPRODUCED_MACHINE_OUTPUT" } });
   } catch (error) {
     return serverError(res, error);
   }

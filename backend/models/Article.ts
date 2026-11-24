@@ -48,6 +48,10 @@ const ArticleSchema = new Schema(
       ref: "Cluster",
       default: null,
     },
+    // Monotonic cluster-generation fencing token; prevents an older rebuild
+    // from overwriting a newer Article.clusterId during recovery.
+    clusterGenerationFence: { type: Number, default: null },
+    ingestionFence: { type: Number, default: null },
   },
   { timestamps: true }
 );

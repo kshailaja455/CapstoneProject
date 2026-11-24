@@ -32,6 +32,8 @@ const NarrativeEventSchema = new Schema({
   qualityFlags: { type: [String], default: [] },
   eligibleArticleCount: { type: Number, default: 0 },
   excludedArticleCount: { type: Number, default: 0 },
+  // Additive, non-destructive cluster validation; never used to edit membership.
+  clusterQuality: { type: Schema.Types.Mixed, default: null },
   firstSeenAt: { type: Date, default: Date.now },
   lastSeenAt: { type: Date, default: Date.now, index: true },
   status: { type: String, enum: ["ACTIVE", "INACTIVE", "MERGED", "SPLIT"], default: "ACTIVE", index: true },

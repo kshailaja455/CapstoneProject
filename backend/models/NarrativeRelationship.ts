@@ -6,6 +6,10 @@ const RelationshipHistorySchema = new Schema({
   at: { type: Date, default: Date.now },
   explanation: String,
   runId: String,
+  classifierVersion: String,
+  // Snapshot the previous machine evaluation when a later run replaces it.
+  // Reviewer state remains on the relationship and is never part of this update.
+  previousEvaluation: { type: Schema.Types.Mixed, default: null },
 }, { _id: false });
 
 const NarrativeRelationshipSchema = new Schema({
@@ -20,12 +24,15 @@ const NarrativeRelationshipSchema = new Schema({
   contradictingEvidence: { type: [String], default: [] },
   explanation: { type: String, required: true },
   evidence: { type: Schema.Types.Mixed, default: {} },
+  // Machine candidate-gate evidence is separate from review fields and decisions.
+  candidateRelevance: { type: Schema.Types.Mixed, default: null },
   parentKeys: { type: [String], default: [], index: true },
   reviewStatus: { type: String, enum: ["PENDING", "CONFIRMED", "REJECTED", "NEEDS_REVIEW"], default: "PENDING", index: true },
   reviewedBy: { type: String, default: null },
   reviewedAt: { type: Date, default: null },
   reviewNote: { type: String, default: "" },
   algorithmVersion: { type: String, required: true },
+  classifierVersion: { type: String, default: "article-evidence-v1" },
   evaluationStatus: { type: String, default: "NOT_CALIBRATED" },
   firstSeenAt: { type: Date, default: Date.now },
   lastEvaluatedAt: { type: Date, default: Date.now, index: true },
