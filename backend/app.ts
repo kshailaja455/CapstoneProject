@@ -31,8 +31,12 @@ app.use(morgan("dev"));
 app.get("/", (_, res) => {
     res.json({
         success: true,
-        message: "Traceon API running",
+        message: "NewsPulse API running",
     });
+});
+
+app.get("/health", (_, res) => {
+    res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
 app.use(clusterRoutes);
