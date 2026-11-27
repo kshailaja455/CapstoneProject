@@ -5,6 +5,7 @@ import Article from "../models/Article";
 import Cluster from "../models/Cluster";
 import IngestJob from "../models/IngestJob";
 import Publisher from "../models/Publisher";
+import { isRetiredFeedUrl, isRetiredPublisher } from "../config/retiredPublishers";
 import { triggerIngest, getSchedulerStatus, sseClients, retryPostIngestNarrative, IngestionAlreadyRunningError } from "../services/ingestService";
 import { notFound, serverError } from "../utils/api";
 
@@ -145,14 +146,14 @@ export async function getLiveArticles(req: Request, res: Response) {
 
 export async function getIngestMonitoring(_req: Request, res: Response) {
   try {
-    const publishers = await Publisher.find({}).lean();
+    const publishers = (await Publisher.find({}).lean()).filter((publisher) => !isRetiredPublisher(publisher));
     const totalPublishers = publishers.length;
     const activePublishers = publishers.filter((p) => p.enabled).length;
 
     let totalFeeds = 0;
     let healthyFeeds = 0;
     for (const p of publishers) {
-      for (const f of p.feeds || []) {
+      for (const f of (p.feeds || []).filter((feed) => !isRetiredFeedUrl(feed.url))) {
         totalFeeds++;
         if (f.enabled && f.lastStatus === "healthy") healthyFeeds++;
       }
@@ -167,23 +168,26 @@ export async function getIngestMonitoring(_req: Request, res: Response) {
     const totalStored = await Article.countDocuments();
     const scheduler = getSchedulerStatus();
 
-    const healthSummary = publishers.map((p) => ({
-      id: p._id.toString(),
-      name: p.name,
-      slug: p.slug,
-      enabled: p.enabled,
-      health: p.health || "healthy",
-      feedCount: (p.feeds || []).length,
-      lastIngestionAt: p.lastIngestionAt,
-      articleCount: p.totalStoredCount || 0,
-      feeds: (p.feeds || []).map((f) => ({
-        url: f.url,
-        category: f.category,
-        enabled: f.enabled,
-        lastStatus: f.lastStatus,
-        lastError: f.lastError,
-      })),
-    }));
+    const healthSummary = publishers.map((p) => {
+      const feeds = (p.feeds || []).filter((feed) => !isRetiredFeedUrl(feed.url));
+      return {
+        id: p._id.toString(),
+        name: p.name,
+        slug: p.slug,
+        enabled: p.enabled,
+        health: p.health || "healthy",
+        feedCount: feeds.length,
+        lastIngestionAt: p.lastIngestionAt,
+        articleCount: p.totalStoredCount || 0,
+        feeds: feeds.map((f) => ({
+          url: f.url,
+          category: f.category,
+          enabled: f.enabled,
+          lastStatus: f.lastStatus,
+          lastError: f.lastError,
+        })),
+      };
+    });
 
     return res.json({
       success: true,

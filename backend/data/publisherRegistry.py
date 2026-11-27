@@ -1,10 +1,10 @@
-# Publisher Registry Definitions for News Pulse
+# Publisher Registry Definitions for Traceon
 # Categorized into:
 # - Existing International Media (3)
-# - Indian Media (11)
-# - Indian Government (4)
-# - Indian Regulators & Alerts (5)
-# - International Official Sources (11)
+# - Indian Media (10)
+# - Indian Government (1)
+# - Indian Regulators & Alerts (2)
+# - International Official Sources (6)
 
 ALL_NEW_PUBLISHERS = [
     # ─── Existing International Media ───────────────────────────────────────
@@ -69,7 +69,7 @@ ALL_NEW_PUBLISHERS = [
         ]
     },
 
-    # ─── A. Indian Media (11) ────────────────────────────────────────────────
+    # ─── A. Indian Media (10) ────────────────────────────────────────────────
     {
         "name": "The Hindu",
         "slug": "the-hindu",
@@ -191,26 +191,6 @@ ALL_NEW_PUBLISHERS = [
         ]
     },
     {
-        "name": "Business Standard",
-        "slug": "business-standard",
-        "homepageUrl": "https://www.business-standard.com",
-        "description": "Business Standard - Financial & Market Intelligence",
-        "language": "en",
-        "category": "Indian Media",
-        "country": "India",
-        "sourceType": "Media",
-        "enabled": True,
-        "feeds": [
-            {
-                "url": "https://www.business-standard.com/rss/home_page_top_stories.rss",
-                "name": "Top Stories",
-                "category": "Business",
-                "enabled": True,
-                "lastStatus": "healthy",
-            }
-        ]
-    },
-    {
         "name": "ThePrint",
         "slug": "theprint",
         "homepageUrl": "https://theprint.in",
@@ -292,27 +272,7 @@ ALL_NEW_PUBLISHERS = [
         ]
     },
 
-    # ─── B. Indian Government (4) ────────────────────────────────────────────
-    {
-        "name": "PIB National",
-        "slug": "pib-national",
-        "homepageUrl": "https://pib.gov.in",
-        "description": "Press Information Bureau - Government of India National Releases",
-        "language": "en",
-        "category": "Indian Government",
-        "country": "India",
-        "sourceType": "Government",
-        "enabled": True,
-        "feeds": [
-            {
-                "url": "https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1",
-                "name": "Press Releases (National)",
-                "category": "Government",
-                "enabled": True,
-                "lastStatus": "healthy",
-            }
-        ]
-    },
+    # ─── B. Indian Government (1) ────────────────────────────────────────────
     {
         "name": "PIB Regional",
         "slug": "pib-regional",
@@ -333,69 +293,8 @@ ALL_NEW_PUBLISHERS = [
             }
         ]
     },
-    {
-        "name": "PIB Media Invitations",
-        "slug": "pib-media-invitations",
-        "homepageUrl": "https://pib.gov.in",
-        "description": "Press Information Bureau - Media Invitations & Press Conferences",
-        "language": "en",
-        "category": "Indian Government",
-        "country": "India",
-        "sourceType": "Government",
-        "enabled": True,
-        "feeds": [
-            {
-                "url": "https://pib.gov.in/RssMain.aspx?ModId=10&Lang=1&Regid=1",
-                "name": "Media Invitations",
-                "category": "Events",
-                "enabled": True,
-                "lastStatus": "healthy",
-            }
-        ]
-    },
-    {
-        "name": "DD News",
-        "slug": "dd-news",
-        "homepageUrl": "https://ddnews.gov.in",
-        "description": "Doordarshan News - India's Public Service Broadcaster",
-        "language": "en",
-        "category": "Indian Government",
-        "country": "India",
-        "sourceType": "Government",
-        "enabled": False,  # Server connection resets / timed out on automated requests
-        "feeds": [
-            {
-                "url": "https://ddnews.gov.in/category/national/feed/",
-                "name": "National Feed",
-                "category": "General",
-                "enabled": False,
-                "lastStatus": "error",
-                "lastError": "Connection reset / SSL timeout from ddnews.gov.in server",
-            }
-        ]
-    },
 
-    # ─── C. Indian Regulators & Alerts (5) ───────────────────────────────────
-    {
-        "name": "Reserve Bank of India",
-        "slug": "reserve-bank-of-india",
-        "homepageUrl": "https://rbi.org.in",
-        "description": "Reserve Bank of India - Central Bank Notifications & Monetary Policy",
-        "language": "en",
-        "category": "Indian Regulators",
-        "country": "India",
-        "sourceType": "Regulator",
-        "enabled": True,
-        "feeds": [
-            {
-                "url": "https://www.rbi.org.in/notifications_rss.xml",
-                "name": "Notifications",
-                "category": "Regulatory",
-                "enabled": True,
-                "lastStatus": "healthy",
-            }
-        ]
-    },
+    # ─── C. Indian Regulators & Alerts (2) ───────────────────────────────────
     {
         "name": "RBI Press Releases",
         "slug": "rbi-press-releases",
@@ -413,27 +312,6 @@ ALL_NEW_PUBLISHERS = [
                 "category": "Regulatory",
                 "enabled": True,
                 "lastStatus": "healthy",
-            }
-        ]
-    },
-    {
-        "name": "SEBI",
-        "slug": "sebi",
-        "homepageUrl": "https://www.sebi.gov.in",
-        "description": "Securities and Exchange Board of India",
-        "language": "en",
-        "category": "Indian Regulators",
-        "country": "India",
-        "sourceType": "Regulator",
-        "enabled": False,  # Akamai Edge blocks automated requests with HTTP 530 / returns 0 items on RSS XML
-        "feeds": [
-            {
-                "url": "https://www.sebi.gov.in/sebirss.xml",
-                "name": "Regulatory Releases",
-                "category": "Regulatory",
-                "enabled": False,
-                "lastStatus": "error",
-                "lastError": "SEBI Akamai edge returns empty XML or HTTP 530 block to non-browser clients",
             }
         ]
     },
@@ -457,29 +335,8 @@ ALL_NEW_PUBLISHERS = [
             }
         ]
     },
-    {
-        "name": "Gazette of India",
-        "slug": "gazette-of-india",
-        "homepageUrl": "https://egazette.gov.in",
-        "description": "The Gazette of India - Official Public Journal & Statutory Notifications",
-        "language": "en",
-        "category": "Indian Regulators",
-        "country": "India",
-        "sourceType": "Regulator",
-        "enabled": False,  # Server internal error / no active public RSS feed
-        "feeds": [
-            {
-                "url": "https://egazette.gov.in/RssFeed.aspx",
-                "name": "Statutory Notifications",
-                "category": "Statutory",
-                "enabled": False,
-                "lastStatus": "error",
-                "lastError": "eGazette endpoint returned HTTP 500 Internal Server Error; no public RSS maintained",
-            }
-        ]
-    },
 
-    # ─── D. International Official Sources (11) ──────────────────────────────
+    # ─── D. International Official Sources (6) ──────────────────────────────
     {
         "name": "US Federal Reserve",
         "slug": "us-federal-reserve",
@@ -494,26 +351,6 @@ ALL_NEW_PUBLISHERS = [
             {
                 "url": "https://www.federalreserve.gov/feeds/press_all.xml",
                 "name": "All Press Releases",
-                "category": "Economy",
-                "enabled": True,
-                "lastStatus": "healthy",
-            }
-        ]
-    },
-    {
-        "name": "European Central Bank",
-        "slug": "european-central-bank",
-        "homepageUrl": "https://www.ecb.europa.eu",
-        "description": "European Central Bank - Press Conferences, Speeches & Decisions",
-        "language": "en",
-        "category": "International Official Sources",
-        "country": "European Union",
-        "sourceType": "Central Bank",
-        "enabled": True,
-        "feeds": [
-            {
-                "url": "https://www.ecb.europa.eu/rss/press.html",
-                "name": "Press Releases",
                 "category": "Economy",
                 "enabled": True,
                 "lastStatus": "healthy",
@@ -617,90 +454,6 @@ ALL_NEW_PUBLISHERS = [
                 "category": "Government",
                 "enabled": True,
                 "lastStatus": "healthy",
-            }
-        ]
-    },
-    {
-        "name": "US FDA",
-        "slug": "us-fda",
-        "homepageUrl": "https://www.fda.gov",
-        "description": "U.S. Food and Drug Administration",
-        "language": "en",
-        "category": "International Official Sources",
-        "country": "United States",
-        "sourceType": "Agency",
-        "enabled": False,  # Legacy XML returned HTTP 404
-        "feeds": [
-            {
-                "url": "https://www.fda.gov/about-fda/contact-fda/stay-informed/rss-feeds/press-releases/rss.xml",
-                "name": "Press Releases",
-                "category": "Health",
-                "enabled": False,
-                "lastStatus": "error",
-                "lastError": "HTTP 404 Not Found: FDA retired static RSS XML in favor of GovDelivery emails",
-            }
-        ]
-    },
-    {
-        "name": "United Nations",
-        "slug": "united-nations",
-        "homepageUrl": "https://news.un.org",
-        "description": "UN News - Global Perspectives & Human Stories",
-        "language": "en",
-        "category": "International Official Sources",
-        "country": "International",
-        "sourceType": "International Organization",
-        "enabled": False,  # Endpoints returned HTTP 404
-        "feeds": [
-            {
-                "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
-                "name": "All English News",
-                "category": "World",
-                "enabled": False,
-                "lastStatus": "error",
-                "lastError": "HTTP 404 Not Found: UN News migrated away from legacy feed subscription endpoints",
-            }
-        ]
-    },
-    {
-        "name": "International Monetary Fund",
-        "slug": "imf",
-        "homepageUrl": "https://www.imf.org",
-        "description": "International Monetary Fund - Press Releases & World Economic Outlook",
-        "language": "en",
-        "category": "International Official Sources",
-        "country": "International",
-        "sourceType": "International Organization",
-        "enabled": False,  # HTTP 403 Forbidden on programmatic RSS requests
-        "feeds": [
-            {
-                "url": "https://www.imf.org/en/News/Rss?category=pressrelease",
-                "name": "Press Releases",
-                "category": "Economy",
-                "enabled": False,
-                "lastStatus": "error",
-                "lastError": "HTTP 403 Forbidden: WAF / Imperva blocks automated RSS requests",
-            }
-        ]
-    },
-    {
-        "name": "World Bank",
-        "slug": "world-bank",
-        "homepageUrl": "https://www.worldbank.org",
-        "description": "The World Bank - Global Development & Poverty Alleviation",
-        "language": "en",
-        "category": "International Official Sources",
-        "country": "International",
-        "sourceType": "International Organization",
-        "enabled": False,  # No active RSS maintained natively
-        "feeds": [
-            {
-                "url": "https://www.worldbank.org/en/news/rss.xml",
-                "name": "News & Press Releases",
-                "category": "Economy",
-                "enabled": False,
-                "lastStatus": "error",
-                "lastError": "HTTP 404 Not Found: World Bank discontinued native public news RSS feeds",
             }
         ]
     },

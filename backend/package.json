@@ -14,14 +14,16 @@
   "scripts": {
     "dev": "tsx watch server.ts",
     "start": "node --import tsx server.ts",
-    "test": "tsx --test services/narrativeEngine.test.ts services/narrativeService.test.ts services/ingestCoordination.test.ts services/narrativeRunSnapshot.test.ts"
+    "test": "tsx --test config/retiredPublishers.test.ts services/narrativeEngine.test.ts services/narrativeService.test.ts services/ingestCoordination.test.ts services/narrativeRunSnapshot.test.ts"
   },
   "peerDependencies": {
     "typescript": "^6.0.3"
   },
   "dependencies": {
+    "@esbuild/win32-x64": "0.28.1",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
+    "esbuild": "0.28.1",
     "express": "^5.2.1",
     "express-validator": "^7.3.2",
     "fast-xml-parser": "^5.12.1",

@@ -1,4 +1,4 @@
-# MediaLens Narrative Intelligence — gap assessment before implementation
+# Traceon Narrative Intelligence — gap assessment before implementation
 
 **Inspection date:** 2026-11-20  
 **Scope:** source and data inspection only; written before narrative implementation changes.

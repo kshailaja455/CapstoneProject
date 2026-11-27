@@ -2,7 +2,7 @@
 
 **Document Version:** 1.0.0  
 **Audit Date:** 2026-11-20  
-**Auditor:** MediaLens Independent Evaluation & Quality Review Panel  
+**Auditor:** Traceon Independent Evaluation & Quality Review Panel
 **Operating State:** Shadow Mode Active (`rules-en-v1.1.0`)  
 **Scope:** Forensic Provenance Audit, Metric Recalculation, Retrieval Recall Baseline, Human Review State, and Gap Analysis  
 

@@ -10,6 +10,7 @@ import feedparser
 from config import REQUEST_TIMEOUT_SECONDS
 from .rss_feeds import RSS_FEEDS
 from .language import is_english_content
+from .retired_sources import is_retired_feed, is_retired_publisher
 
 try:
     from database.mongo import db
@@ -54,11 +55,13 @@ def get_active_publishers_and_feeds():
         try:
             db_publishers = list(publishers_collection.find({"enabled": True}))
             for pub in db_publishers:
+                if is_retired_publisher(pub):
+                    continue
                 pub_name = pub.get("name")
                 pub_id = pub.get("_id")
                 feeds = pub.get("feeds", [])
                 for feed_item in feeds:
-                    if feed_item.get("enabled", True):
+                    if feed_item.get("enabled", True) and not is_retired_feed(feed_item):
                         targets.append({
                             "publisherName": pub_name,
                             "publisherId": pub_id,
@@ -105,7 +108,7 @@ def fetch_articles():
             request = Request(
                 url,
                 headers={
-                    "User-Agent": "NewsPulse-FeedIngester/2.0 (+https://github.com/newspulse/ingest)",
+                    "User-Agent": "Traceon-FeedIngester/2.0 (+https://github.com/kshailaja455/CapstoneProject)",
                     "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9",
                 },
             )

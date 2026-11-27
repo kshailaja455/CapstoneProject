@@ -14,7 +14,7 @@ The frontend integration resides in `frontend/src/App.jsx` and `App.css`. The in
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│ News Pulse / MediaLens                      [ Refresh data ] [ Analyze]│
+│ Traceon — News Intelligence Platform        [ Refresh data ] [ Analyze]│
 ├────────────────────────────────────────────────────────────────────────┤
 │ Live Feed Monitor: 125 Articles | 0 Failed | Automatic · every 15 min   │
 ├────────────────────────────────────────────────────────────────────────┤

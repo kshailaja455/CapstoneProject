@@ -7,7 +7,7 @@ ENV PATH=$BUN_INSTALL/bin:$PATH
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends ca-certificates curl unzip python3 python3-venv python3-pip \
-  && curl -fsSL https://bun.sh/install | bash \
+  && curl -fsSL https://bun.sh/install | bash -s "bun-v1.4.5" \
   && rm -rf /var/lib/apt/lists/*
 
 COPY backend/package.json backend/bun.lock ./backend/

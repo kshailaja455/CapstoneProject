@@ -16,7 +16,7 @@ articles.update_many({}, {"$set": {"clusterId": None}})
 ```
 This means MongoDB `Cluster._id` values are completely ephemeral and wiped on every scraper run. If the narrative layer relied on `Cluster._id`, all narrative relationships, timelines, and identifiers would break upon every RSS refresh.
 
-### 1.2 The MediaLens Solution: Content & URL Fingerprints
+### 1.2 The Traceon Solution: Content & URL Fingerprints
 The narrative layer implements three tiers of durable keys:
 
 1. **Article Fingerprint:**

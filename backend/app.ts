@@ -31,7 +31,7 @@ app.use(morgan("dev"));
 app.get("/", (_, res) => {
     res.json({
         success: true,
-        message: "News Pulse API running",
+        message: "Traceon API running",
     });
 });
 

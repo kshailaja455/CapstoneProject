@@ -1197,12 +1197,10 @@ h3 { color: var(--h3-color); font-size: 15px; font-weight: 650; }
   gap: 14px;
   flex-wrap: wrap;
 }
-.rss-left { display: grid; gap: 10px; }
+.rss-left { display: grid; flex: 1; gap: 10px; min-width: 0; }
 .rss-stats {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 9px;
@@ -1912,6 +1910,6 @@ h3 { color: var(--h3-color); font-size: 15px; font-weight: 650; }
   .metric-grid { grid-template-columns: 1fr; }
   .content-area { padding: 14px; }
   .live-feed-table { font-size: 12px; }
-  .rss-stats { flex-direction: column; }
+  .rss-stats { grid-template-columns: 1fr; }
   .rss-stats span { border-right: 0; border-bottom: 1px solid var(--border); }
 }

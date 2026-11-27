@@ -37,7 +37,7 @@ If even one edge between member events is uncorroborated, missing, or classified
   - Node C: `Trump accused of falling asleep during speech at APEC` (Optics report)
 - **Failure Mode in Naive Flat Systems:**
   Naive single-link or thresholded graph algorithms merge A, B, and C into one massive flat cluster because B shares words with A and B shares words with C.
-- **Audited MediaLens Engine Behavior:**
+- **Audited Traceon Engine Behavior:**
   1. The classifier evaluates pair $(A, B)$ as `BROADER_CONTEXT_ONLY` (not child level).
   2. The classifier evaluates pair $(B, C)$ as `INSUFFICIENT_EVIDENCE` / `BROADER_CONTEXT_ONLY`.
   3. The complete-link evaluator examines the triad $\{A, B, C\}$. Since edges $(A, B)$ and $(B, C)$ are not accepted child links, **no transitive merge occurs**.

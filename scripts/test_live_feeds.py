@@ -10,7 +10,7 @@ feeds = {
 for name, url in feeds.items():
     print(f'=== {name} ===')
     try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'NewsPulse-FeedIngester/2.0'})
+        req = urllib.request.Request(url, headers={'User-Agent': 'Traceon-FeedIngester/2.0'})
         with urllib.request.urlopen(req, timeout=10) as resp:
             content = resp.read()
         f = feedparser.parse(content)

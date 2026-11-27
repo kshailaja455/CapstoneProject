@@ -2,7 +2,7 @@
 
 **Document Version:** 1.0.0  
 **Audit Date:** 2026-11-20  
-**Auditor:** Independent MediaLens Validation Panel  
+**Auditor:** Independent Traceon Validation Panel
 **Implementation Evaluated:** `backend/services/narrativeEngine.ts` and `backend/services/narrativeService.ts` (`rules-en-v1.1.0`)  
 **Operating Mode:** Shadow Mode  
 
@@ -43,7 +43,7 @@ Under the **Limited Internal Narrative Review Ready** status:
 1. The narrative intelligence subsystem remains running in **shadow mode** (`NARRATIVE_SHADOW_MODE=true`).
 2. Internal editors and researchers may use the **Narrative Intelligence dashboard console** to inspect detected storylines, examine underlying article facets, and record human review labels (`Confirm`, `Reject`, `Needs review`).
 3. Proposed storylines must be presented with clear `CANDIDATE` and `NEEDS_REVIEW` indicators. No automated narrative claim may be published to external end-users as verified factual ground truth without human confirmation.
-4. If the subsystem is disabled via `NARRATIVE_ANALYSIS_ENABLED=false`, the core News Pulse / MediaLens cluster board, signal map, timeline, and RSS ingestion pipeline remain fully operational.
+4. If the subsystem is disabled via `NARRATIVE_ANALYSIS_ENABLED=false`, the core Traceon cluster board, signal map, timeline, and RSS ingestion pipeline remain fully operational.
 
 ---
 

@@ -4,6 +4,7 @@ import { XMLParser } from "fast-xml-parser";
 import Publisher from "../models/Publisher";
 import Article from "../models/Article";
 import { detectEnglish, isEnglishLanguageCode } from "../utils/language";
+import { isRetiredFeedUrl, isRetiredPublisher } from "../config/retiredPublishers";
 
 const DEFAULT_PUBLISHERS = [
   {
@@ -76,10 +77,10 @@ export async function seedDefaultPublishers() {
 
 export async function getPublishers(req: Request, res: Response) {
   try {
-    let publishers = await Publisher.find({}).sort({ name: 1 }).lean();
+    let publishers = (await Publisher.find({}).sort({ name: 1 }).lean()).filter((publisher) => !isRetiredPublisher(publisher));
     if (publishers.length === 0) {
       await seedDefaultPublishers();
-      publishers = await Publisher.find({}).sort({ name: 1 }).lean();
+      publishers = (await Publisher.find({}).sort({ name: 1 }).lean()).filter((publisher) => !isRetiredPublisher(publisher));
     }
 
     // Attach dynamic article counts
@@ -92,12 +93,14 @@ export async function getPublishers(req: Request, res: Response) {
     }
 
     const enriched = publishers.map((p) => {
+      const activeFeeds = (p.feeds || []).filter((feed) => !isRetiredFeedUrl(feed.url));
       const artCount = countMap[p.name] ?? (p.totalStoredCount || 0);
       return {
         ...p,
+        feeds: activeFeeds,
         articleCount: artCount,
-        feedCount: (p.feeds || []).length,
-        activeFeedCount: (p.feeds || []).filter((f) => f.enabled).length,
+        feedCount: activeFeeds.length,
+        activeFeedCount: activeFeeds.filter((f) => f.enabled).length,
       };
     });
 
@@ -243,7 +246,7 @@ export async function testFeedUrl(req: Request, res: Response) {
     const response = await fetch(url.trim(), {
       signal: controller.signal,
       headers: {
-        "User-Agent": "NewsPulse-FeedValidator/1.0 (+https://github.com/newspulse/validator)",
+        "User-Agent": "Traceon-FeedValidator/1.0 (+https://github.com/kshailaja455/CapstoneProject)",
         Accept: "application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9",
       },
     });

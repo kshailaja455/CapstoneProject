@@ -2,7 +2,7 @@
 
 **Document Version:** 1.0.0  
 **Audit Date:** 2026-11-20  
-**Evaluator:** MediaLens Audit Team (Read-Only Independent Audit)  
+**Evaluator:** Traceon Audit Team (Read-Only Independent Audit)
 **System Status:** Shadow Mode Active  
 **Algorithm Version:** `rules-en-v1.1.0`
 

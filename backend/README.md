@@ -1,6 +1,6 @@
-# News Pulse Backend
+# Traceon Backend
 
-Express API for News Pulse clusters, timeline data, threshold playground previews, and ingestion jobs.
+Express API for Traceon clusters, timeline data, threshold playground previews, and ingestion jobs.
 
 ## Run
 

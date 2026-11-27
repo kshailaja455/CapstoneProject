@@ -6,7 +6,7 @@ import { connectDB } from "./config/db";
 import { seedDefaultPublishers } from "./controllers/publisherController";
 import { startAutoScheduler } from "./services/ingestService";
 
-const PORT = process.env.PORT || 5050;
+const PORT = Number(process.env.PORT) || 5050;
 
 async function start() {
   await connectDB();
@@ -17,8 +17,8 @@ async function start() {
     startAutoScheduler(intervalMinutes * 60 * 1000);
   }
 
-  app.listen(PORT, () => {
-    console.log(`🚀 News Pulse Backend Server running on port ${PORT}`);
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`🚀 Traceon News Intelligence Platform API running on port ${PORT}`);
   });
 }
 

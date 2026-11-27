@@ -1482,10 +1482,7 @@ function Dashboard({ darkMode, onToggleDark, onRefresh, refreshing, initialVisua
               <span>Total stored articles <strong>{ingestSummary.totalStoredArticles}</strong></span>
               <span>Newly discovered <strong>{ingestSummary.newlyDiscovered}</strong></span>
               <span>Duplicate articles skipped <strong>{ingestSummary.duplicateArticlesSkipped}</strong></span>
-              <span>Failed feed requests <strong>{ingestSummary.failedFeedRequests || 0}</strong></span>
-              {ingestSummary.lastSuccessfulCollectionAt && (
-                <span>Last successful collection <strong>{formatDate(ingestSummary.lastSuccessfulCollectionAt)}</strong></span>
-              )}
+              <span>Last successful collection <strong>{formatDate(ingestSummary.lastSuccessfulCollectionAt)}</strong></span>
             </div>
           )}
         </div>
@@ -1656,8 +1653,8 @@ export default function App() {
         <div className="sidebar-brand">
           <div className="brand-icon"><Radio size={20} /></div>
           <div>
-            <h1>Rumor Flow</h1>
-            <span className="brand-sub">TRACKER</span>
+            <h1>Traceon</h1>
+            <span className="brand-sub">NEWS INTELLIGENCE PLATFORM</span>
           </div>
         </div>
 

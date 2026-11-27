@@ -1,6 +1,6 @@
-# News Pulse Frontend
+# Traceon Frontend
 
-React + Vite dashboard for News Pulse.
+React + Vite dashboard for Traceon — News Intelligence Platform.
 
 ## Features
 

@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: traceon-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    autoDeploy: false
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGO_DB
+        value: news-pulse
+      - key: CORS_ORIGIN
+        sync: false
+      - key: AUTO_RSS_POLLING
+        value: "false"

@@ -1,8 +1,8 @@
-# FINAL CLASSIFICATION EVALUATION: MediaLens Narrative Intelligence
+# FINAL CLASSIFICATION EVALUATION: Traceon Narrative Intelligence
 
 **Document Version:** 1.0.0  
 **Audit Date:** 2026-11-20  
-**Evaluator:** MediaLens Independent Evaluation Panel  
+**Evaluator:** Traceon Independent Evaluation Panel
 **Rule Version:** `rules-en-v1.1.0`  
 **Evaluation Mode:** Ground-Truth Human Labeling vs. Automated Engine Predictions  
 
